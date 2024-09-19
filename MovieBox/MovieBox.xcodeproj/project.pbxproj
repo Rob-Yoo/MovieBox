@@ -18,6 +18,7 @@
 		CC7319A32C9C08CB009158EC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A22C9C08CB009158EC /* NukeUI */; };
 		CC7319A62C9C09C7009158EC /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A52C9C09C7009158EC /* SkeletonUI */; };
 		CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A82C9C09DA009158EC /* YouTubePlayerKit */; };
+		CC7319B02C9C0B94009158EC /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319AF2C9C0B94009158EC /* Swinject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 			files = (
 				CC7319A62C9C09C7009158EC /* SkeletonUI in Frameworks */,
 				CC73199A2C9C0611009158EC /* RealmSwift in Frameworks */,
+				CC7319B02C9C0B94009158EC /* Swinject in Frameworks */,
 				CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */,
 				CC73199D2C9C07FB009158EC /* ShuffleIt in Frameworks */,
 				CC7319A02C9C0843009158EC /* Moya in Frameworks */,
@@ -65,10 +67,8 @@
 		CC7319872C9C0468009158EC /* MovieBox */ = {
 			isa = PBXGroup;
 			children = (
-				CC7319882C9C0468009158EC /* MovieBoxApp.swift */,
-				CC73198A2C9C0468009158EC /* ContentView.swift */,
-				CC73198C2C9C0469009158EC /* Assets.xcassets */,
-				CC73198E2C9C0469009158EC /* Preview Content */,
+				CC7319AB2C9C0B16009158EC /* Resources */,
+				CC7319AA2C9C0B0F009158EC /* Sources */,
 				CC7319962C9C0481009158EC /* API.swift */,
 			);
 			path = MovieBox;
@@ -80,6 +80,40 @@
 				CC73198F2C9C0469009158EC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CC7319AA2C9C0B0F009158EC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319B12C9C0BC8009158EC /* Presentation */,
+				CC7319AC2C9C0B2A009158EC /* App */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CC7319AB2C9C0B16009158EC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CC73198E2C9C0469009158EC /* Preview Content */,
+				CC73198C2C9C0469009158EC /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CC7319AC2C9C0B2A009158EC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319882C9C0468009158EC /* MovieBoxApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CC7319B12C9C0BC8009158EC /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CC73198A2C9C0468009158EC /* ContentView.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +139,7 @@
 				CC7319A22C9C08CB009158EC /* NukeUI */,
 				CC7319A52C9C09C7009158EC /* SkeletonUI */,
 				CC7319A82C9C09DA009158EC /* YouTubePlayerKit */,
+				CC7319AF2C9C0B94009158EC /* Swinject */,
 			);
 			productName = MovieBox;
 			productReference = CC7319852C9C0468009158EC /* MovieBox.app */;
@@ -141,6 +176,7 @@
 				CC7319A12C9C08CB009158EC /* XCRemoteSwiftPackageReference "Nuke" */,
 				CC7319A42C9C09C7009158EC /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				CC7319A72C9C09DA009158EC /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+				CC7319AE2C9C0B94009158EC /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = CC7319862C9C0468009158EC /* Products */;
 			projectDirPath = "";
@@ -440,6 +476,14 @@
 				minimumVersion = 1.9.0;
 			};
 		};
+		CC7319AE2C9C0B94009158EC /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -472,6 +516,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC7319A72C9C09DA009158EC /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
 			productName = YouTubePlayerKit;
+		};
+		CC7319AF2C9C0B94009158EC /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC7319AE2C9C0B94009158EC /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
