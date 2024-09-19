@@ -1,0 +1,479 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319882C9C0468009158EC /* MovieBoxApp.swift */; };
+		CC73198B2C9C0468009158EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC73198A2C9C0468009158EC /* ContentView.swift */; };
+		CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198C2C9C0469009158EC /* Assets.xcassets */; };
+		CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198F2C9C0469009158EC /* Preview Assets.xcassets */; };
+		CC7319972C9C0481009158EC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319962C9C0481009158EC /* API.swift */; };
+		CC73199A2C9C0611009158EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319992C9C0611009158EC /* RealmSwift */; };
+		CC73199D2C9C07FB009158EC /* ShuffleIt in Frameworks */ = {isa = PBXBuildFile; productRef = CC73199C2C9C07FB009158EC /* ShuffleIt */; };
+		CC7319A02C9C0843009158EC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = CC73199F2C9C0843009158EC /* Moya */; };
+		CC7319A32C9C08CB009158EC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A22C9C08CB009158EC /* NukeUI */; };
+		CC7319A62C9C09C7009158EC /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A52C9C09C7009158EC /* SkeletonUI */; };
+		CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A82C9C09DA009158EC /* YouTubePlayerKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CC7319852C9C0468009158EC /* MovieBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC7319882C9C0468009158EC /* MovieBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxApp.swift; sourceTree = "<group>"; };
+		CC73198A2C9C0468009158EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC73198C2C9C0469009158EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC73198F2C9C0469009158EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CC7319962C9C0481009158EC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC7319822C9C0468009158EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC7319A62C9C09C7009158EC /* SkeletonUI in Frameworks */,
+				CC73199A2C9C0611009158EC /* RealmSwift in Frameworks */,
+				CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */,
+				CC73199D2C9C07FB009158EC /* ShuffleIt in Frameworks */,
+				CC7319A02C9C0843009158EC /* Moya in Frameworks */,
+				CC7319A32C9C08CB009158EC /* NukeUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC73197C2C9C0468009158EC = {
+			isa = PBXGroup;
+			children = (
+				CC7319872C9C0468009158EC /* MovieBox */,
+				CC7319862C9C0468009158EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC7319862C9C0468009158EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319852C9C0468009158EC /* MovieBox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC7319872C9C0468009158EC /* MovieBox */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319882C9C0468009158EC /* MovieBoxApp.swift */,
+				CC73198A2C9C0468009158EC /* ContentView.swift */,
+				CC73198C2C9C0469009158EC /* Assets.xcassets */,
+				CC73198E2C9C0469009158EC /* Preview Content */,
+				CC7319962C9C0481009158EC /* API.swift */,
+			);
+			path = MovieBox;
+			sourceTree = "<group>";
+		};
+		CC73198E2C9C0469009158EC /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CC73198F2C9C0469009158EC /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC7319842C9C0468009158EC /* MovieBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC7319932C9C0469009158EC /* Build configuration list for PBXNativeTarget "MovieBox" */;
+			buildPhases = (
+				CC7319812C9C0468009158EC /* Sources */,
+				CC7319822C9C0468009158EC /* Frameworks */,
+				CC7319832C9C0468009158EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MovieBox;
+			packageProductDependencies = (
+				CC7319992C9C0611009158EC /* RealmSwift */,
+				CC73199C2C9C07FB009158EC /* ShuffleIt */,
+				CC73199F2C9C0843009158EC /* Moya */,
+				CC7319A22C9C08CB009158EC /* NukeUI */,
+				CC7319A52C9C09C7009158EC /* SkeletonUI */,
+				CC7319A82C9C09DA009158EC /* YouTubePlayerKit */,
+			);
+			productName = MovieBox;
+			productReference = CC7319852C9C0468009158EC /* MovieBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC73197D2C9C0468009158EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					CC7319842C9C0468009158EC = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = CC7319802C9C0468009158EC /* Build configuration list for PBXProject "MovieBox" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CC73197C2C9C0468009158EC;
+			packageReferences = (
+				CC7319982C9C0611009158EC /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CC73199B2C9C07FB009158EC /* XCRemoteSwiftPackageReference "ShuffleIt" */,
+				CC73199E2C9C0843009158EC /* XCRemoteSwiftPackageReference "Moya" */,
+				CC7319A12C9C08CB009158EC /* XCRemoteSwiftPackageReference "Nuke" */,
+				CC7319A42C9C09C7009158EC /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+				CC7319A72C9C09DA009158EC /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+			);
+			productRefGroup = CC7319862C9C0468009158EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC7319842C9C0468009158EC /* MovieBox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC7319832C9C0468009158EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */,
+				CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC7319812C9C0468009158EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC73198B2C9C0468009158EC /* ContentView.swift in Sources */,
+				CC7319972C9C0481009158EC /* API.swift in Sources */,
+				CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CC7319912C9C0469009158EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CC7319922C9C0469009158EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC7319942C9C0469009158EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MovieBox/Preview Content\"";
+				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "무비박스";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinyoo.sesac.MovieBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CC7319952C9C0469009158EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MovieBox/Preview Content\"";
+				DEVELOPMENT_TEAM = YWNQ4RZBTS;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "무비박스";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinyoo.sesac.MovieBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC7319802C9C0468009158EC /* Build configuration list for PBXProject "MovieBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC7319912C9C0469009158EC /* Debug */,
+				CC7319922C9C0469009158EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC7319932C9C0469009158EC /* Build configuration list for PBXNativeTarget "MovieBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC7319942C9C0469009158EC /* Debug */,
+				CC7319952C9C0469009158EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CC7319982C9C0611009158EC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 20.0.0;
+			};
+		};
+		CC73199B2C9C07FB009158EC /* XCRemoteSwiftPackageReference "ShuffleIt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dscyrescotti/ShuffleIt.git";
+			requirement = {
+				kind = exactVersion;
+				version = 2.1.3;
+			};
+		};
+		CC73199E2C9C0843009158EC /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		CC7319A12C9C08CB009158EC /* XCRemoteSwiftPackageReference "Nuke" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Nuke.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+		CC7319A42C9C09C7009158EC /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+		CC7319A72C9C09DA009158EC /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CC7319992C9C0611009158EC /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC7319982C9C0611009158EC /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		CC73199C2C9C07FB009158EC /* ShuffleIt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC73199B2C9C07FB009158EC /* XCRemoteSwiftPackageReference "ShuffleIt" */;
+			productName = ShuffleIt;
+		};
+		CC73199F2C9C0843009158EC /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC73199E2C9C0843009158EC /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		CC7319A22C9C08CB009158EC /* NukeUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC7319A12C9C08CB009158EC /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = NukeUI;
+		};
+		CC7319A52C9C09C7009158EC /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC7319A42C9C09C7009158EC /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
+		CC7319A82C9C09DA009158EC /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC7319A72C9C09DA009158EC /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = CC73197D2C9C0468009158EC /* Project object */;
+}
