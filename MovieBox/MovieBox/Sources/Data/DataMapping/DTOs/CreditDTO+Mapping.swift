@@ -22,17 +22,17 @@ struct CastDTO: Decodable {
 }
 
 extension CreditDTO {
-    func toDomain() -> MovieCredit {
+    func toDomain() -> MovieContent.MovieCredit {
         let castList = self.cast.map { $0.toDomain() }
         
-        return MovieCredit(castList: castList)
+        return MovieContent.MovieCredit(castList: castList)
     }
 }
 
 extension CastDTO {
-    func toDomain() -> MovieCredit.Cast {
+    func toDomain() -> MovieContent.MovieCredit.Cast {
         let profilePath = API.tmdbImageRequestBaseUrl + (self.profilePath ?? "")
         
-        return MovieCredit.Cast(name: self.name, profilePath: profilePath)
+        return MovieContent.MovieCredit.Cast(name: self.name, profilePath: profilePath)
     }
 }

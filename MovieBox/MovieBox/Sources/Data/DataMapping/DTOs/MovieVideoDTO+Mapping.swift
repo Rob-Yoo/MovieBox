@@ -17,15 +17,15 @@ struct VideoDTO: Decodable {
 }
 
 extension MovieVideoDTO {
-    func toDomain() -> MovieVideoGallery {
-        return MovieVideoGallery(videoList: self.results.map { $0.toDomain() })
+    func toDomain() -> MovieContent.MovieVideoGallery {
+        return MovieContent.MovieVideoGallery(videoList: self.results.map { $0.toDomain() })
     }
 }
 
 extension VideoDTO {
-    func toDomain() -> MovieVideoGallery.MovieVideo {
+    func toDomain() -> MovieContent.MovieVideoGallery.MovieVideo {
         let videoPath = "https://www.youtube.com/watch?v=\(self.key)"
         
-        return MovieVideoGallery.MovieVideo(name: self.name, videoPath: videoPath)
+        return MovieContent.MovieVideoGallery.MovieVideo(name: self.name, videoPath: videoPath)
     }
 }

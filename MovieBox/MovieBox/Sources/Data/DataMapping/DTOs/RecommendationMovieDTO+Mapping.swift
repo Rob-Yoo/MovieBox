@@ -12,9 +12,9 @@ struct RecommendationMovieDTO: Decodable {
 }
 
 extension RecommendationMovieDTO {
-    func toDomain() -> RecommendationMovieGallery {
+    func toDomain() -> MovieContent.RecommendationMovieGallery {
         let posterList = self.results.map { $0.toDomain() }
         
-        return RecommendationMovieGallery(posterList: posterList)
+        return MovieContent.RecommendationMovieGallery(posterList: posterList)
     }
 }

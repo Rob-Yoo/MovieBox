@@ -12,10 +12,10 @@ struct SimilarMovieDTO: Decodable {
 }
 
 extension SimilarMovieDTO {
-    func toDomain() -> SimilarMovieGallery {
+    func toDomain() -> MovieContent.SimilarMovieGallery {
         let posterList = self.results.map { $0.toDomain() }
 
-        return SimilarMovieGallery(posterList: posterList)
+        return MovieContent.SimilarMovieGallery(posterList: posterList)
     }
 }
 

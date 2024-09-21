@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieDetailDTO: Decodable {
+struct MovieInfoDTO: Decodable {
     let id: Int
     let title: String
     let backdropPath: String?
@@ -31,14 +31,14 @@ struct GenreDTO: Decodable {
     let name: String
 }
 
-extension MovieDetailDTO {
-    func toDomain() -> MovieInfo {
+extension MovieInfoDTO {
+    func toDomain() -> MovieContent.MovieInfo {
         let genres = self.genres.map { $0.name }
         let country = self.country.map { CountryMapper.covertToName(code: $0) }
         let posterPath = API.tmdbImageRequestBaseUrl + (self.posterPath ?? "")
         let backdropPath = API.tmdbImageRequestBaseUrl + (self.backdropPath ?? "")
         
-        return MovieInfo(
+        return MovieContent.MovieInfo(
             id: self.id,
             posterPath: posterPath,
             backdropPath: backdropPath,

@@ -11,7 +11,7 @@ import Moya
 enum TMDBRequest {
     case weeklyTrendMovies
     case searchMovie(query: String, page: Int)
-    case movieDetail(_ movieID: String)
+    case movieInfo(_ movieID: String)
     case similarMovies(_ movieID: String)
     case recommendMovies(_ movieID: String)
     case videos(_ movieID: String)
@@ -31,7 +31,7 @@ extension TMDBRequest: TargetType {
             return "/trending/movie/week"
         case .searchMovie:
             return "/search/movie"
-        case .movieDetail(let movieID):
+        case .movieInfo(let movieID):
             return "/movie/\(movieID)"
         case .similarMovies(let movieID):
             return "/movie/\(movieID)/similar"
@@ -53,7 +53,7 @@ extension TMDBRequest: TargetType {
     var task: Moya.Task {
         switch self {
         case .weeklyTrendMovies,
-                .movieDetail,
+                .movieInfo,
                 .similarMovies,
                 .recommendMovies,
                 .videos,
