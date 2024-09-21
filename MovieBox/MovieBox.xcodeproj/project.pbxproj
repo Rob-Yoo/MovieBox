@@ -37,6 +37,9 @@
 		CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319DD2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift */; };
 		CC7319E02C9DA608009158EC /* WeeklyTrendMovieGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319DF2C9DA608009158EC /* WeeklyTrendMovieGallery.swift */; };
 		CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319E22C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift */; };
+		CC7319E82C9E8F14009158EC /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319E72C9E8F14009158EC /* TMDBRequest.swift */; };
+		CC7319EA2C9E95B3009158EC /* KobisRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319E92C9E95B3009158EC /* KobisRequest.swift */; };
+		CC7319EE2C9E9774009158EC /* DateFormatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319ED2C9E9774009158EC /* DateFormatManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		CC7319DD2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeeklyTrendMovieDTO+Mapping.swift"; sourceTree = "<group>"; };
 		CC7319DF2C9DA608009158EC /* WeeklyTrendMovieGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTrendMovieGallery.swift; sourceTree = "<group>"; };
 		CC7319E22C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxOfficeGalleryMapper.swift; sourceTree = "<group>"; };
+		CC7319E72C9E8F14009158EC /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
+		CC7319E92C9E95B3009158EC /* KobisRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KobisRequest.swift; sourceTree = "<group>"; };
+		CC7319ED2C9E9774009158EC /* DateFormatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,7 @@
 		CC7319AA2C9C0B0F009158EC /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CC7319EB2C9E9757009158EC /* Utils */,
 				CC7319B22C9C0C0E009158EC /* Data */,
 				CC7319B62C9C4F36009158EC /* Domain */,
 				CC7319B12C9C0BC8009158EC /* Presentation */,
@@ -158,8 +165,9 @@
 		CC7319B22C9C0C0E009158EC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				CC7319E12C9E855C009158EC /* Mapper */,
-				CC7319B32C9C0C58009158EC /* DTOs */,
+				CC7319E62C9E8EF6009158EC /* DataMapping */,
+				CC7319E52C9E8E84009158EC /* Repository */,
+				CC7319E42C9E8D62009158EC /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -216,6 +224,47 @@
 				CC7319E22C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		CC7319E42C9E8D62009158EC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319E72C9E8F14009158EC /* TMDBRequest.swift */,
+				CC7319E92C9E95B3009158EC /* KobisRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CC7319E52C9E8E84009158EC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CC7319E62C9E8EF6009158EC /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319E12C9E855C009158EC /* Mapper */,
+				CC7319B32C9C0C58009158EC /* DTOs */,
+			);
+			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		CC7319EB2C9E9757009158EC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319EC2C9E9766009158EC /* Managers */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CC7319EC2C9E9766009158EC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319ED2C9E9774009158EC /* DateFormatManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC7319B52C9C4AE8009158EC /* BoxOfficeDTO.swift in Sources */,
+				CC7319EE2C9E9774009158EC /* DateFormatManager.swift in Sources */,
 				CC7319C92C9D60AD009158EC /* CountryMapper.swift in Sources */,
 				CC7319DC2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift in Sources */,
 				CC7319DA2C9DA07A009158EC /* RecommendationMovieDTO+Mapping.swift in Sources */,
@@ -315,6 +365,7 @@
 				CC7319CC2C9D63E2009158EC /* MovieDetailDTO+Mapping.swift in Sources */,
 				CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */,
 				CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */,
+				CC7319EA2C9E95B3009158EC /* KobisRequest.swift in Sources */,
 				CC7319B92C9C5173009158EC /* DailyBoxOffice.swift in Sources */,
 				CC73198B2C9C0468009158EC /* ContentView.swift in Sources */,
 				CC7319972C9C0481009158EC /* API.swift in Sources */,
@@ -325,6 +376,7 @@
 				CC7319BF2C9D539D009158EC /* MovieDetail.swift in Sources */,
 				CC7319BB2C9D4445009158EC /* MoviePoster.swift in Sources */,
 				CC7319E02C9DA608009158EC /* WeeklyTrendMovieGallery.swift in Sources */,
+				CC7319E82C9E8F14009158EC /* TMDBRequest.swift in Sources */,
 				CC7319D42C9D9221009158EC /* MovieVideoDTO+Mapping.swift in Sources */,
 				CC7319D02C9D7674009158EC /* MovieGalleryDTO+Mapping.swift in Sources */,
 			);

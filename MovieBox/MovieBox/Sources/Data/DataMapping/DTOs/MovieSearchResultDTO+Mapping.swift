@@ -9,6 +9,12 @@ import Foundation
 
 struct MovieSearchResultDTO: Decodable {
     let results: [MoviePosterDTO]
+    let totalPages: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case results
+        case totalPages = "total_pages"
+    }
 }
 
 extension MovieSearchResultDTO {
