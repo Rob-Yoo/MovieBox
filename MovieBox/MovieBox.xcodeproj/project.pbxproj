@@ -45,6 +45,8 @@
 		CC7319F52C9ED27B009158EC /* MovieContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319F42C9ED27B009158EC /* MovieContentRepository.swift */; };
 		CC7319F82C9EEC25009158EC /* Moya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319F72C9EEC25009158EC /* Moya+Extension.swift */; };
 		CC7319FB2C9F2362009158EC /* MovieContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FA2C9F2362009158EC /* MovieContentDataSource.swift */; };
+		CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */; };
+		CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		CC7319F42C9ED27B009158EC /* MovieContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentRepository.swift; sourceTree = "<group>"; };
 		CC7319F72C9EEC25009158EC /* Moya+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Extension.swift"; sourceTree = "<group>"; };
 		CC7319FA2C9F2362009158EC /* MovieContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentDataSource.swift; sourceTree = "<group>"; };
+		CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieListRepository.swift; sourceTree = "<group>"; };
+		CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				CC7319F22C9ED1C4009158EC /* DefaultMovieContentRepository.swift */,
+				CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				CC7319FA2C9F2362009158EC /* MovieContentDataSource.swift */,
+				CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -406,11 +412,13 @@
 				CC7319F12C9E9A7E009158EC /* MovieListRepository.swift in Sources */,
 				CC7319CC2C9D63E2009158EC /* MovieDetailDTO+Mapping.swift in Sources */,
 				CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */,
+				CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */,
 				CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */,
 				CC7319EA2C9E95B3009158EC /* KobisRequest.swift in Sources */,
 				CC7319B92C9C5173009158EC /* DailyBoxOffice.swift in Sources */,
 				CC73198B2C9C0468009158EC /* ContentView.swift in Sources */,
 				CC7319972C9C0481009158EC /* API.swift in Sources */,
+				CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */,
 				CC7319BD2C9D4C2F009158EC /* MovieSearchResultDTO+Mapping.swift in Sources */,
 				CC7319F32C9ED1C4009158EC /* DefaultMovieContentRepository.swift in Sources */,
 				CC7319D82C9D9FF3009158EC /* MovieSearchResult.swift in Sources */,
