@@ -15,7 +15,7 @@ struct DailyBoxOfficeGallery {
         let rankInten: Int
         let isNew: Bool
         let numberOfAudience: Int
-        var poster: MoviePoster?
+        var poster: MoviePoster
     }
     
     var movieList: [DailyBoxOffice]

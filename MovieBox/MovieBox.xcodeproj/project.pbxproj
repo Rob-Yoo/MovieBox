@@ -19,7 +19,7 @@
 		CC7319A62C9C09C7009158EC /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A52C9C09C7009158EC /* SkeletonUI */; };
 		CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A82C9C09DA009158EC /* YouTubePlayerKit */; };
 		CC7319B02C9C0B94009158EC /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319AF2C9C0B94009158EC /* Swinject */; };
-		CC7319B52C9C4AE8009158EC /* BoxOfficeDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319B42C9C4AE8009158EC /* BoxOfficeDTO+Mapping.swift */; };
+		CC7319B52C9C4AE8009158EC /* BoxOfficeDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319B42C9C4AE8009158EC /* BoxOfficeDTO.swift */; };
 		CC7319B92C9C5173009158EC /* DailyBoxOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319B82C9C5173009158EC /* DailyBoxOffice.swift */; };
 		CC7319BB2C9D4445009158EC /* MoviePoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319BA2C9D4445009158EC /* MoviePoster.swift */; };
 		CC7319BD2C9D4C2F009158EC /* MovieSearchResultDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319BC2C9D4C2F009158EC /* MovieSearchResultDTO+Mapping.swift */; };
@@ -36,6 +36,7 @@
 		CC7319DC2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319DB2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift */; };
 		CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319DD2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift */; };
 		CC7319E02C9DA608009158EC /* WeeklyTrendMovieGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319DF2C9DA608009158EC /* WeeklyTrendMovieGallery.swift */; };
+		CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319E22C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +46,7 @@
 		CC73198C2C9C0469009158EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC73198F2C9C0469009158EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC7319962C9C0481009158EC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		CC7319B42C9C4AE8009158EC /* BoxOfficeDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BoxOfficeDTO+Mapping.swift"; sourceTree = "<group>"; };
+		CC7319B42C9C4AE8009158EC /* BoxOfficeDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeDTO.swift; sourceTree = "<group>"; };
 		CC7319B82C9C5173009158EC /* DailyBoxOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxOffice.swift; sourceTree = "<group>"; };
 		CC7319BA2C9D4445009158EC /* MoviePoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePoster.swift; sourceTree = "<group>"; };
 		CC7319BC2C9D4C2F009158EC /* MovieSearchResultDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MovieSearchResultDTO+Mapping.swift"; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		CC7319DB2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoviePosterDTO+Mapping.swift"; sourceTree = "<group>"; };
 		CC7319DD2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeeklyTrendMovieDTO+Mapping.swift"; sourceTree = "<group>"; };
 		CC7319DF2C9DA608009158EC /* WeeklyTrendMovieGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyTrendMovieGallery.swift; sourceTree = "<group>"; };
+		CC7319E22C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBoxOfficeGalleryMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		CC7319B22C9C0C0E009158EC /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				CC7319E12C9E855C009158EC /* Mapper */,
 				CC7319B32C9C0C58009158EC /* DTOs */,
 			);
 			path = Data;
@@ -164,7 +167,7 @@
 		CC7319B32C9C0C58009158EC /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
-				CC7319B42C9C4AE8009158EC /* BoxOfficeDTO+Mapping.swift */,
+				CC7319B42C9C4AE8009158EC /* BoxOfficeDTO.swift */,
 				CC7319DB2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift */,
 				CC7319BC2C9D4C2F009158EC /* MovieSearchResultDTO+Mapping.swift */,
 				CC7319CB2C9D63E2009158EC /* MovieDetailDTO+Mapping.swift */,
@@ -203,6 +206,14 @@
 			isa = PBXGroup;
 			children = (
 				CC7319C82C9D60AD009158EC /* CountryMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		CC7319E12C9E855C009158EC /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				CC7319E22C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -296,12 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC7319B52C9C4AE8009158EC /* BoxOfficeDTO+Mapping.swift in Sources */,
+				CC7319B52C9C4AE8009158EC /* BoxOfficeDTO.swift in Sources */,
 				CC7319C92C9D60AD009158EC /* CountryMapper.swift in Sources */,
 				CC7319DC2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift in Sources */,
 				CC7319DA2C9DA07A009158EC /* RecommendationMovieDTO+Mapping.swift in Sources */,
 				CC7319CE2C9D6A65009158EC /* CreditDTO+Mapping.swift in Sources */,
 				CC7319CC2C9D63E2009158EC /* MovieDetailDTO+Mapping.swift in Sources */,
+				CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */,
 				CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */,
 				CC7319B92C9C5173009158EC /* DailyBoxOffice.swift in Sources */,
 				CC73198B2C9C0468009158EC /* ContentView.swift in Sources */,
