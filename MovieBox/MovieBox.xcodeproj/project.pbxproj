@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319882C9C0468009158EC /* MovieBoxApp.swift */; };
-		CC73198B2C9C0468009158EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC73198A2C9C0468009158EC /* ContentView.swift */; };
 		CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198C2C9C0469009158EC /* Assets.xcassets */; };
 		CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198F2C9C0469009158EC /* Preview Assets.xcassets */; };
 		CC7319972C9C0481009158EC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319962C9C0481009158EC /* API.swift */; };
@@ -48,12 +47,27 @@
 		CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */; };
 		CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */; };
 		CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC731A012CA037AF009158EC /* MovieListUseCase.swift */; };
+		CCF315722CA045080082D794 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315712CA045080082D794 /* CustomTabView.swift */; };
+		CCF315732CA05A760082D794 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC7319992C9C0611009158EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CCF315742CA05A760082D794 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CCF315732CA05A760082D794 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CC7319852C9C0468009158EC /* MovieBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7319882C9C0468009158EC /* MovieBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxApp.swift; sourceTree = "<group>"; };
-		CC73198A2C9C0468009158EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CC73198C2C9C0469009158EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC73198F2C9C0469009158EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC7319962C9C0481009158EC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -86,6 +100,8 @@
 		CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieListRepository.swift; sourceTree = "<group>"; };
 		CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 		CC731A012CA037AF009158EC /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
+		CCF315712CA045080082D794 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		CCF315752CA05B1C0082D794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +141,7 @@
 		CC7319872C9C0468009158EC /* MovieBox */ = {
 			isa = PBXGroup;
 			children = (
+				CCF315752CA05B1C0082D794 /* Info.plist */,
 				CC73198E2C9C0469009158EC /* Preview Content */,
 				CC7319AB2C9C0B16009158EC /* Resources */,
 				CC7319AA2C9C0B0F009158EC /* Sources */,
@@ -175,7 +192,6 @@
 			children = (
 				CC731A042CA03E40009158EC /* Components */,
 				CC731A032CA03E2D009158EC /* Screens */,
-				CC73198A2C9C0468009158EC /* ContentView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -335,8 +351,17 @@
 		CC731A042CA03E40009158EC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CC731A052CA0407C009158EC /* TabView */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CC731A052CA0407C009158EC /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				CCF315712CA045080082D794 /* CustomTabView.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +374,7 @@
 				CC7319812C9C0468009158EC /* Sources */,
 				CC7319822C9C0468009158EC /* Frameworks */,
 				CC7319832C9C0468009158EC /* Resources */,
+				CCF315742CA05A760082D794 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -444,8 +470,8 @@
 				CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */,
 				CC7319EA2C9E95B3009158EC /* KobisRequest.swift in Sources */,
 				CC7319B92C9C5173009158EC /* DailyBoxOffice.swift in Sources */,
-				CC73198B2C9C0468009158EC /* ContentView.swift in Sources */,
 				CC7319972C9C0481009158EC /* API.swift in Sources */,
+				CCF315722CA045080082D794 /* CustomTabView.swift in Sources */,
 				CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */,
 				CC7319BD2C9D4C2F009158EC /* MovieSearchResultDTO+Mapping.swift in Sources */,
 				CC7319F32C9ED1C4009158EC /* DefaultMovieContentRepository.swift in Sources */,
@@ -606,6 +632,7 @@
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieBox/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "무비박스";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -642,6 +669,7 @@
 				DEVELOPMENT_TEAM = YWNQ4RZBTS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieBox/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "무비박스";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
