@@ -7,8 +7,8 @@
 
 import Swinject
 
-final class DIContatiner {
-    static let shared = DIContatiner()
+final class DIContainer {
+    static let shared = DIContainer()
     var container: Container {
         get {
             if _container == nil {
@@ -41,6 +41,10 @@ final class DIContatiner {
             return DefaultMovieListUseCase(movieListRepository: repository)
         }
 
+        container.register(MovieSearchViewModel.self) { resolver in
+            let useCase = resolver.resolve(MovieListUseCase.self)!
+            return MovieSearchViewModel(movieListUseCase: useCase)
+        }
         return container
     }
 }
@@ -49,6 +53,6 @@ final class DIContatiner {
     let wrappedValue: Dependency
     
     init() {
-        self.wrappedValue = DIContatiner.shared.container.resolve(Dependency.self)!
+        self.wrappedValue = DIContainer.shared.container.resolve(Dependency.self)!
     }
 }

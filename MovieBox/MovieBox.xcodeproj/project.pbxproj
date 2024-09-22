@@ -52,7 +52,8 @@
 		CCF3157C2CA060D80082D794 /* MovieSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3157B2CA060D80082D794 /* MovieSearchViewModel.swift */; };
 		CCF3157E2CA060E80082D794 /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3157D2CA060E80082D794 /* MovieSearchView.swift */; };
 		CCF315812CA06EF10082D794 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315802CA06EF10082D794 /* ViewModel.swift */; };
-		CCF315842CA07C630082D794 /* DIContatiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315832CA07C630082D794 /* DIContatiner.swift */; };
+		CCF315842CA07C630082D794 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315832CA07C630082D794 /* DIContainer.swift */; };
+		CCF315872CA08FEC0082D794 /* InjectedStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315862CA08FEC0082D794 /* InjectedStateObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,7 +110,8 @@
 		CCF3157B2CA060D80082D794 /* MovieSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewModel.swift; sourceTree = "<group>"; };
 		CCF3157D2CA060E80082D794 /* MovieSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchView.swift; sourceTree = "<group>"; };
 		CCF315802CA06EF10082D794 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		CCF315832CA07C630082D794 /* DIContatiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContatiner.swift; sourceTree = "<group>"; };
+		CCF315832CA07C630082D794 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		CCF315862CA08FEC0082D794 /* InjectedStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedStateObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 		CC7319B12C9C0BC8009158EC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CCF315852CA08FD30082D794 /* PropertyWrappers */,
 				CCF3157F2CA06EDC0082D794 /* Protocol */,
 				CC731A042CA03E40009158EC /* Components */,
 				CC731A032CA03E2D009158EC /* Screens */,
@@ -411,9 +414,17 @@
 		CCF315822CA07C590082D794 /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
-				CCF315832CA07C630082D794 /* DIContatiner.swift */,
+				CCF315832CA07C630082D794 /* DIContainer.swift */,
 			);
 			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		CCF315852CA08FD30082D794 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				CCF315862CA08FEC0082D794 /* InjectedStateObject.swift */,
+			);
+			path = PropertyWrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,7 +543,7 @@
 				CC7319F32C9ED1C4009158EC /* DefaultMovieContentRepository.swift in Sources */,
 				CC7319D82C9D9FF3009158EC /* MovieSearchResult.swift in Sources */,
 				CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */,
-				CCF315842CA07C630082D794 /* DIContatiner.swift in Sources */,
+				CCF315842CA07C630082D794 /* DIContainer.swift in Sources */,
 				CC7319D62C9D9EDF009158EC /* SimilarMovieDTO+Mapping.swift in Sources */,
 				CC7319BF2C9D539D009158EC /* MovieContent.swift in Sources */,
 				CC7319BB2C9D4445009158EC /* MoviePoster.swift in Sources */,
@@ -540,6 +551,7 @@
 				CC7319E82C9E8F14009158EC /* TMDBRequest.swift in Sources */,
 				CC7319D42C9D9221009158EC /* MovieVideoDTO+Mapping.swift in Sources */,
 				CC7319F82C9EEC25009158EC /* Moya+Extension.swift in Sources */,
+				CCF315872CA08FEC0082D794 /* InjectedStateObject.swift in Sources */,
 				CC7319D02C9D7674009158EC /* MovieGalleryDTO+Mapping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
