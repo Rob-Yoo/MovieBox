@@ -36,7 +36,7 @@ final class DefaultMovieListDataSource: MovieListDataSource {
             
             switch mapResult {
             case .success(let dto):
-                let totalPages = dto.totalPages
+                totalPages = dto.totalPages
                 return .success(dto)
             case .failure(let error):
                 return .failure(error)

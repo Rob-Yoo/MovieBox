@@ -9,7 +9,7 @@ import Foundation
 
 final class DefaultMovieListRepository: MovieListRepository {
     
-    private let dataSource: MovieListDataSource
+    private var dataSource: MovieListDataSource
     
     init(dataSource: MovieListDataSource) {
         self.dataSource = dataSource

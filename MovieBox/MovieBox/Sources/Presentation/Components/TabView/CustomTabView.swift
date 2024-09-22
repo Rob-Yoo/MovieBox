@@ -17,7 +17,7 @@ struct CustomTabView: View {
                 .tag(Tab.box)
                 .toolbar(.hidden, for: .tabBar)
             
-            Text("Search")
+            MovieSearchView()
                 .tag(Tab.search)
                 .toolbar(.hidden, for: .tabBar)
             
