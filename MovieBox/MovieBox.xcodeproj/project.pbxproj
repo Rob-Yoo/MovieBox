@@ -47,6 +47,7 @@
 		CC7319FB2C9F2362009158EC /* MovieContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FA2C9F2362009158EC /* MovieContentDataSource.swift */; };
 		CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */; };
 		CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */; };
+		CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC731A012CA037AF009158EC /* MovieListUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		CC7319FA2C9F2362009158EC /* MovieContentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentDataSource.swift; sourceTree = "<group>"; };
 		CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieListRepository.swift; sourceTree = "<group>"; };
 		CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
+		CC731A012CA037AF009158EC /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,8 @@
 		CC7319B12C9C0BC8009158EC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CC731A042CA03E40009158EC /* Components */,
+				CC731A032CA03E2D009158EC /* Screens */,
 				CC73198A2C9C0468009158EC /* ContentView.swift */,
 			);
 			path = Presentation;
@@ -208,6 +212,7 @@
 		CC7319B62C9C4F36009158EC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				CC731A002CA03770009158EC /* UseCases */,
 				CC7319EF2C9E9A5A009158EC /* Interfaces */,
 				CC7319CA2C9D60C7009158EC /* Mapper */,
 				CC7319B72C9C4F62009158EC /* Entities */,
@@ -312,6 +317,28 @@
 			path = DataSources;
 			sourceTree = "<group>";
 		};
+		CC731A002CA03770009158EC /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				CC731A012CA037AF009158EC /* MovieListUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		CC731A032CA03E2D009158EC /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CC731A042CA03E40009158EC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -406,6 +433,7 @@
 				CC7319EE2C9E9774009158EC /* DateFormatManager.swift in Sources */,
 				CC7319C92C9D60AD009158EC /* CountryMapper.swift in Sources */,
 				CC7319DC2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift in Sources */,
+				CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */,
 				CC7319FB2C9F2362009158EC /* MovieContentDataSource.swift in Sources */,
 				CC7319DA2C9DA07A009158EC /* RecommendationMovieDTO+Mapping.swift in Sources */,
 				CC7319CE2C9D6A65009158EC /* CreditDTO+Mapping.swift in Sources */,
