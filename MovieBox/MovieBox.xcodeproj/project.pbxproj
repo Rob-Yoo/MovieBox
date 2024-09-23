@@ -54,6 +54,7 @@
 		CCF315812CA06EF10082D794 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315802CA06EF10082D794 /* ViewModel.swift */; };
 		CCF315842CA07C630082D794 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315832CA07C630082D794 /* DIContainer.swift */; };
 		CCF315872CA08FEC0082D794 /* InjectedStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315862CA08FEC0082D794 /* InjectedStateObject.swift */; };
+		CCF315892CA110FE0082D794 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF315882CA110FE0082D794 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,6 +113,7 @@
 		CCF315802CA06EF10082D794 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		CCF315832CA07C630082D794 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		CCF315862CA08FEC0082D794 /* InjectedStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedStateObject.swift; sourceTree = "<group>"; };
+		CCF315882CA110FE0082D794 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			children = (
 				CC73198C2C9C0469009158EC /* Assets.xcassets */,
 				CC7319C52C9D5C06009158EC /* Countries.json */,
+				CCF315882CA110FE0082D794 /* Launch Screen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -306,7 +309,7 @@
 		CC7319EB2C9E9757009158EC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				CCF315822CA07C590082D794 /* DIContainer */,
+				CCF315822CA07C590082D794 /* DI */,
 				CC7319EC2C9E9766009158EC /* Managers */,
 			);
 			path = Utils;
@@ -411,12 +414,12 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		CCF315822CA07C590082D794 /* DIContainer */ = {
+		CCF315822CA07C590082D794 /* DI */ = {
 			isa = PBXGroup;
 			children = (
 				CCF315832CA07C630082D794 /* DIContainer.swift */,
 			);
-			path = DIContainer;
+			path = DI;
 			sourceTree = "<group>";
 		};
 		CCF315852CA08FD30082D794 /* PropertyWrappers */ = {
@@ -506,6 +509,7 @@
 			files = (
 				CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */,
 				CC7319C72C9D5C06009158EC /* Countries.json in Resources */,
+				CCF315892CA110FE0082D794 /* Launch Screen.storyboard in Resources */,
 				CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,8 +710,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -743,8 +749,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
