@@ -14,104 +14,63 @@ struct CustomTabView: View {
     
     init() {
         let appearance = UITabBarAppearance()
-        appearance.configureWithTransparentBackground()
-
+        
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .mainTheme
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
     }
     
     var body: some View {
-        ZStack {
-            TabView(selection: $activeTab) {
-                Text("Box")
-                    .tag(Tab.box)
-                    .toolbar(.hidden, for: .tabBar)
-                
-                MovieSearchView()
-                    .tag(Tab.search)
-                    .toolbar(.hidden, for: .tabBar)
-                
-                Text("Setting")
-                    .tag(Tab.setting)
-                    .toolbar(.hidden, for: .tabBar)
+        TabView(selection: $activeTab) {
+            
+            ForEach(Tab.allCases, id: \.hashValue) { tab in
+                tab.rootView
+                    .tag(tab)
+                    .tabItem { tab.tabBarImage }
             }
             
-            
-            VStack {
-                Spacer()
-                customTabBar()
-            }
         }
-    }
-    
-    @ViewBuilder
-    func customTabBar(_ tint: Color = .white, _ inactiveTint: Color = .secondary) -> some View {
-        ZStack {
-            Capsule()
-            .frame(height: 65)
-            .foregroundColor(Color(.mainTheme))
-            .shadow(radius: 2)
-
-            HStack(spacing: 0) {
-                ForEach(Tab.allCases, id: \.index) {
-                    TabItem(
-                        tint: tint,
-                        inactiveTint: inactiveTint,
-                        tab: $0,
-                        activeTab: $activeTab)
-                }
-            }
-        }
-        .padding(.horizontal, 30)
-    }
-}
-
-struct TabItem: View {
-    var tint: Color
-    var inactiveTint: Color
-    var tab: CustomTabView.Tab
-    @Binding var activeTab: CustomTabView.Tab
-    
-    var body: some View {
-        VStack(spacing: 0) {
-            tab.tabBarImage
-                .foregroundStyle(activeTab == tab ? tint : inactiveTint)
-        }
-        .frame(maxWidth: .infinity)
-        .frame(height: 35)
-        .onTapGesture {
-            activeTab = tab
-        }
+        .tint(Color.white)
     }
 }
 
 extension CustomTabView {
     enum Tab: CaseIterable {
         case box
-        case search
+        case movie
         case setting
         
-        var tabBarImage: some View {
+        var tabBarImage: Image {
             switch self {
             case .box:
-                return Image(.box)
-                    .renderingMode(.template)
-                    .resizable()
-                    .frame(width: 30, height: 30)
-            case .search:
-                return Image(systemName: "magnifyingglass")
-                    .resizable()
-                    .frame(width: 25, height: 25)
+                return Image(systemName: "shippingbox.fill")
+            case .movie:
+                return Image(systemName: "movieclapper")
             case .setting:
-                return Image(systemName: "gear")
-                    .resizable()
-                    .frame(width: 25, height: 25)
+                return Image(systemName: "gearshape")
             }
         }
         
-        var index: Int {
-            return Tab.allCases.firstIndex(of: self) ?? 0
+        var rootView: some View {
+            switch self {
+            case .box:
+                return AnyView(SimpleView()
+                    .background(Color.background))
+            case .movie:
+                return AnyView(MovieListView()
+                    .background(Color.background))
+            case .setting:
+                return AnyView(SimpleView()
+                    .background(Color.background))
+            }
         }
+    }
+}
+
+struct SimpleView: View {
+    var body: some View {
+        return Text("공사중...")
     }
 }
 

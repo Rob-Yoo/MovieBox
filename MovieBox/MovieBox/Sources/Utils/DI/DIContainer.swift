@@ -41,9 +41,9 @@ final class DIContainer {
             return DefaultMovieListUseCase(movieListRepository: repository)
         }
 
-        container.register(MovieSearchViewModel.self) { resolver in
+        container.register(MovieListViewModel.self) { resolver in
             let useCase = resolver.resolve(MovieListUseCase.self)!
-            return MovieSearchViewModel(movieListUseCase: useCase)
+            return MovieListViewModel(movieListUseCase: useCase)
         }
         return container
     }

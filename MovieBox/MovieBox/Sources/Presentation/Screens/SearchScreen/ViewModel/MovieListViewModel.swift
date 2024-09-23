@@ -1,5 +1,5 @@
 //
-//  MovieSearchViewModel.swift
+//  MovieListViewModel.swift
 //  MovieBox
 //
 //  Created by Jinyoung Yoo on 9/22/24.

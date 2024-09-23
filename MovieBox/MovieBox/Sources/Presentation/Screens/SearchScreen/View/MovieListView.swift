@@ -1,5 +1,5 @@
 //
-//  MovieSearchView.swift
+//  MovieListView.swift
 //  MovieBox
 //
 //  Created by Jinyoung Yoo on 9/22/24.
@@ -10,7 +10,7 @@ import NukeUI
 
 struct MovieListView: View {
     
-    @InjectedStateObject private var viewModel: MovieSearchViewModel
+    @InjectedStateObject private var viewModel: MovieListViewModel
     @State private var show = false
     
     var body: some View {

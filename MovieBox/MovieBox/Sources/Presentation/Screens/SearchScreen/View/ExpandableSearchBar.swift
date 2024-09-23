@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpandableSearchBar: View {
     
-    @ObservedObject var viewModel: MovieSearchViewModel
+    @ObservedObject var viewModel: MovieListViewModel
     @State private var show = false
     
     var body: some View {
@@ -72,6 +72,6 @@ struct ExpandableSearchBar: View {
 
 #Preview {
     ExpandableSearchBar(
-        viewModel: DIContainer.shared.container.resolve(MovieSearchViewModel.self)!
+        viewModel: DIContainer.shared.container.resolve(MovieListViewModel.self)!
     )
 }
