@@ -8,7 +8,7 @@
 import SwiftUI
 import NukeUI
 
-struct MovieSearchView: View {
+struct MovieListView: View {
     
     @InjectedStateObject private var viewModel: MovieSearchViewModel
     @State private var show = false
@@ -45,6 +45,7 @@ struct MovieSearchView: View {
                     .listSectionSeparator(.hidden)
                 }
                 .padding(.trailing)
+                .scrollIndicators(.never)
                 .listStyle(.grouped)
                 .scrollContentBackground(.hidden)
             }
@@ -97,5 +98,5 @@ struct NextView: View {
 //struct Movie
 
 #Preview {
-    MovieSearchView()
+    MovieListView()
 }

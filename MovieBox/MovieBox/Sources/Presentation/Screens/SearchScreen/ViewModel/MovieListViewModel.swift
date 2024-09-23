@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class MovieSearchViewModel: ViewModel {
+final class MovieListViewModel: ViewModel {
     var input = Input()
     @Published var output = Output()
     
@@ -47,7 +47,7 @@ final class MovieSearchViewModel: ViewModel {
     }
 }
 
-extension MovieSearchViewModel {
+extension MovieListViewModel {
     struct Input {
         var searchTextField = ""
         var loadWeeklyTrendMovieList = PassthroughSubject<Void, Never>()
