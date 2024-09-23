@@ -21,4 +21,16 @@ final class DateFormatManager {
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: target)
     }
+    
+    func convertToYearString(format: String, target: String) -> String {
+        dateFormatter.dateFormat = format
+        
+        guard let date = dateFormatter.date(from: target) else {
+            print("Date 타입 변형 실패")
+            return ""
+        }
+        
+        dateFormatter.dateFormat = "yyyy"
+        return dateFormatter.string(from: date)
+    }
 }

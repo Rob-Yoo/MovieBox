@@ -8,5 +8,13 @@
 import Foundation
 
 struct WeeklyTrendMovieGallery {
-    let posterList: [MoviePoster]
+    
+    struct WeeklyTrendMovie {
+        let id: Int
+        let posterPath: String
+        let name: String
+        let releaseYear: String
+    }
+    
+    let movieList: [WeeklyTrendMovie]
 }

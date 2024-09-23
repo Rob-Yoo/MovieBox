@@ -27,7 +27,7 @@ extension MovieContent {
         let title: String
         let runtime: Int
         let overview: String
-        let releaseDate: String
+        let releaseYear: String
     }
 
     // 캐스팅

@@ -6,33 +6,49 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct CustomTabView: View {
     
     @State private var activeTab: Tab = .box
     
+    init() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+
+        UITabBar.appearance().standardAppearance = appearance
+        UITabBar.appearance().scrollEdgeAppearance = appearance
+    }
+    
     var body: some View {
-        TabView(selection: $activeTab) {
-            Text("Box")
-                .tag(Tab.box)
-                .toolbar(.hidden, for: .tabBar)
+        ZStack {
+            TabView(selection: $activeTab) {
+                Text("Box")
+                    .tag(Tab.box)
+                    .toolbar(.hidden, for: .tabBar)
+                
+                MovieSearchView()
+                    .tag(Tab.search)
+                    .toolbar(.hidden, for: .tabBar)
+                
+                Text("Setting")
+                    .tag(Tab.setting)
+                    .toolbar(.hidden, for: .tabBar)
+            }
             
-            MovieSearchView()
-                .tag(Tab.search)
-                .toolbar(.hidden, for: .tabBar)
             
-            Text("Setting")
-                .tag(Tab.setting)
-                .toolbar(.hidden, for: .tabBar)
+            VStack {
+                Spacer()
+                customTabBar()
+            }
         }
-        customTabBar()
     }
     
     @ViewBuilder
     func customTabBar(_ tint: Color = .white, _ inactiveTint: Color = .secondary) -> some View {
         ZStack {
             Capsule()
-            .frame(height: 74)
+            .frame(height: 65)
             .foregroundColor(Color(.mainTheme))
             .shadow(radius: 2)
 
@@ -47,7 +63,6 @@ struct CustomTabView: View {
             }
         }
         .padding(.horizontal, 30)
-//        .padding(.vertical)
     }
 }
 

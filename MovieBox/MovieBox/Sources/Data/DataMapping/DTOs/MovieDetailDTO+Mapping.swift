@@ -37,6 +37,7 @@ extension MovieInfoDTO {
         let country = self.country.map { CountryMapper.covertToName(code: $0) }
         let posterPath = API.tmdbImageRequestBaseUrl + (self.posterPath ?? "")
         let backdropPath = API.tmdbImageRequestBaseUrl + (self.backdropPath ?? "")
+        let releaseYear = DateFormatManager.shared.convertToYearString(format: "yyyy-MM-dd", target: self.releaseDate)
         
         return MovieContent.MovieInfo(
             id: self.id,
@@ -47,7 +48,7 @@ extension MovieInfoDTO {
             title: self.title,
             runtime: self.runtime,
             overview: self.overview ?? "",
-            releaseDate: self.releaseDate
+            releaseYear: releaseYear
         )
     }
 }

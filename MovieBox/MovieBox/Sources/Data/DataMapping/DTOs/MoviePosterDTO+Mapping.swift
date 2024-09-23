@@ -21,6 +21,9 @@ extension MoviePosterDTO {
     func toDomain() -> MoviePoster {
         let posterPath = API.tmdbImageRequestBaseUrl + (self.posterPath ?? "")
         
-        return MoviePoster(id: self.id, posterPath: posterPath)
+        return MoviePoster(
+            id: self.id,
+            posterPath: posterPath
+        )
     }
 }

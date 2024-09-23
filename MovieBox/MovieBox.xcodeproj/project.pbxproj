@@ -55,6 +55,7 @@
 		CCF315842CA07C630082D794 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315832CA07C630082D794 /* DIContainer.swift */; };
 		CCF315872CA08FEC0082D794 /* InjectedStateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315862CA08FEC0082D794 /* InjectedStateObject.swift */; };
 		CCF315892CA110FE0082D794 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF315882CA110FE0082D794 /* Launch Screen.storyboard */; };
+		CCF3158D2CA12CCA0082D794 /* ExpandableSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3158C2CA12CCA0082D794 /* ExpandableSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -114,6 +115,7 @@
 		CCF315832CA07C630082D794 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		CCF315862CA08FEC0082D794 /* InjectedStateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedStateObject.swift; sourceTree = "<group>"; };
 		CCF315882CA110FE0082D794 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		CCF3158C2CA12CCA0082D794 /* ExpandableSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF3157D2CA060E80082D794 /* MovieSearchView.swift */,
+				CCF3158C2CA12CCA0082D794 /* ExpandableSearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				CC7319C92C9D60AD009158EC /* CountryMapper.swift in Sources */,
 				CC7319DC2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift in Sources */,
 				CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */,
+				CCF3158D2CA12CCA0082D794 /* ExpandableSearchBar.swift in Sources */,
 				CC7319FB2C9F2362009158EC /* MovieContentDataSource.swift in Sources */,
 				CC7319DA2C9DA07A009158EC /* RecommendationMovieDTO+Mapping.swift in Sources */,
 				CC7319CE2C9D6A65009158EC /* CreditDTO+Mapping.swift in Sources */,

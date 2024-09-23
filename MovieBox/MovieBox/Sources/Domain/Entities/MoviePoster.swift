@@ -9,5 +9,5 @@ import Foundation
 
 struct MoviePoster {
     let id: Int
-    let posterPath: String?
+    let posterPath: String
 }

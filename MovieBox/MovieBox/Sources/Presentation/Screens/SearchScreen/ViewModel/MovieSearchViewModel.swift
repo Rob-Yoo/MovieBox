@@ -9,11 +9,17 @@ import Foundation
 import Combine
 
 final class MovieSearchViewModel: ViewModel {
-    let input = Input()
+    var input = Input()
     @Published var output = Output()
     
     private var cancellables = Set<AnyCancellable>()
-    @Injected private var movieListUseCase: MovieListUseCase
+//    @Injected private var movieListUseCase: MovieListUseCase
+    private var movieListUseCase: MovieListUseCase
+    
+    init(movieListUseCase: MovieListUseCase) {
+        self.movieListUseCase = movieListUseCase
+        transform()
+    }
     
     func transform() {
         input.loadWeeklyTrendMovieList
@@ -32,7 +38,9 @@ final class MovieSearchViewModel: ViewModel {
         
         switch result {
         case .success(let data):
-            output.weeklyTrendMovieList = data.posterList
+            DispatchQueue.main.async { [weak self] in
+                self?.output.weeklyTrendMovieList = data.movieList
+            }
         case .failure(let error):
             print(#function, error.localizedDescription)
         }
@@ -47,6 +55,7 @@ extension MovieSearchViewModel {
     
     struct Output {
         var searchResults = [MoviePoster]()
-        var weeklyTrendMovieList = [MoviePoster]()
+        var number = 1
+        var weeklyTrendMovieList = [WeeklyTrendMovieGallery.WeeklyTrendMovie]()
     }
 }
