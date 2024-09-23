@@ -10,12 +10,11 @@ import SwiftUI
 struct ExpandableSearchBar: View {
     
     @ObservedObject var viewModel: MovieListViewModel
-    @State private var show = false
     
     var body: some View {
         HStack(spacing: 0) {
             
-            if (!show) {
+            if (!viewModel.output.showSearchView) {
                 Text("영화")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -26,7 +25,7 @@ struct ExpandableSearchBar: View {
             
             HStack(spacing: 0) {
                 
-                if self.show {
+                if viewModel.output.showSearchView {
                     
                     Image(systemName: "magnifyingglass")
                         .padding(.trailing, 8)
@@ -35,12 +34,12 @@ struct ExpandableSearchBar: View {
                         .foregroundStyle(.white)
                         .background(Color.gray)
                         .onSubmit {
-                            //
+                            viewModel.input.searchButtonTapped.send(())
                         }
                     
                     Button {
                         withAnimation {
-                            self.show.toggle()
+                            viewModel.input.showSearchView.send(false)
                         }
                     } label: {
                         Image(systemName: "xmark")
@@ -50,7 +49,7 @@ struct ExpandableSearchBar: View {
                 } else {
                     Button {
                         withAnimation {
-                            self.show.toggle()
+                            viewModel.input.showSearchView.send(true)
                         }
                     } label: {
                         Image(systemName: "magnifyingglass")
@@ -61,8 +60,8 @@ struct ExpandableSearchBar: View {
                 }
                 
             }
-            .padding(self.show ? 10 : 0)
-            .background(self.show ? Color.gray : Color.mainTheme)
+            .padding(viewModel.output.showSearchView ? 10 : 0)
+            .background(viewModel.output.showSearchView ? Color.gray : Color.mainTheme)
             .clipShape(Capsule())
 
         }
