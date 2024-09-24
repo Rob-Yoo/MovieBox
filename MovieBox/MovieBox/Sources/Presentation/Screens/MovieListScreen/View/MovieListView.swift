@@ -25,51 +25,74 @@ struct MovieListView: View {
                     Spacer()
                     
                     if viewModel.output.showSearchView {
-                        List {
-                            Section {
-                                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],  spacing: 10) {
-                                    ForEach(viewModel.output.searchResults, id: \.id) { movie in
-                                        
-                                        let width = (geometry.size.width - 60) / 3
-                                        
-                                        LazyImage(url: URL(string: movie.posterPath)!) { state in
-                                            if let image = state.image {
-                                                image
-                                                    .resizable()
-                                                    .frame(width: width, height: width * 1.3)
-                                            } else {
-                                                Rectangle()
-                                                    .fill(Color.gray.opacity(0.3))
-                                                    .frame(width: width, height: width * 1.3)
-                                            }
-                                        }
-                                        .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                                    }
-                                }
-                                .frame(maxWidth: .infinity)
-                                .listRowBackground(Color.clear)
-                                .listRowSeparator(.hidden)
-                            } header: {
-                                Text("검색 결과")
+                        
+                        if (viewModel.output.searchResults.isEmpty) {
+                            VStack {
+                               Text("검색 결과가 없습니다.")
                                     .font(.title2)
-                                    .fontWeight(.semibold)
+                                    .fontWeight(.bold)
                                     .foregroundStyle(.white)
                             }
+                            .frame(maxHeight: .infinity)
+                            .padding(.bottom, 50)
                         }
-                        .listStyle(.plain)
-                        .scrollIndicators(.never)
-                        .scrollContentBackground(.hidden)
+                        else {
+                            ScrollView {
+                                
+                                HStack {
+                                    Text("검색 결과")
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(.white)
+                                        .padding(.leading)
+                                    Spacer()
+                                }
+                                
+                                LazyVGrid(columns: [
+                                    GridItem(.flexible()),
+                                    GridItem(.flexible()),
+                                    GridItem(.flexible())], spacing: 10) {
+                                        ForEach(viewModel.output.searchResults, id: \.self) { movie in
+                                            
+                                            let width = (geometry.size.width - 60) / 3
+                                            
+                                            LazyImage(url: URL(string: movie.posterPath)!) { state in
+                                                if let image = state.image {
+                                                    
+                                                    NavigationLink {
+                                                        NextView(id: movie.id)
+                                                    } label: {
+                                                        image
+                                                            .resizable()
+                                                            .frame(width: width, height: width * 1.3)
+                                                    }
+                                                    
+                                                } else {
+                                                    Rectangle()
+                                                        .fill(Color.gray.opacity(0.3))
+                                                        .frame(width: width, height: width * 1.3)
+                                                }
+                                            }
+                                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                        }
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.horizontal)
+                            }
+                            .scrollIndicators(.never)
+                        }
+
                     } else {
                         List {
                             Section {
                                 ForEach(viewModel.output.weeklyTrendMovieList, id: \.id) { item in
                                     ZStack(alignment: .leading) {
                                         weeklyTrendMovieItemView(item, geometry.size.width)
-                                        NavigationLink(
-                                            destination: { NextView(id: item.id)
+                                        NavigationLink { NextView(id: item.id)
+                                            } label: {
+                                                EmptyView()
                                             }
-                                            , label: {})
-                                        .opacity(0)
+                                            .opacity(0)
                                     }
                                     .listRowBackground(Color.clear)
                                 }

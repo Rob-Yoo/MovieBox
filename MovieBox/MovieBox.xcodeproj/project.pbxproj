@@ -47,6 +47,7 @@
 		CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */; };
 		CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */; };
 		CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC731A012CA037AF009158EC /* MovieListUseCase.swift */; };
+		CCBA34712CA2DC160058507C /* MovieContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34702CA2DC160058507C /* MovieContentView.swift */; };
 		CCF315722CA045080082D794 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315712CA045080082D794 /* CustomTabView.swift */; };
 		CCF315732CA05A760082D794 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC7319992C9C0611009158EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CCF3157C2CA060D80082D794 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */; };
@@ -107,6 +108,7 @@
 		CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieListRepository.swift; sourceTree = "<group>"; };
 		CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 		CC731A012CA037AF009158EC /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
+		CCBA34702CA2DC160058507C /* MovieContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentView.swift; sourceTree = "<group>"; };
 		CCF315712CA045080082D794 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		CCF315752CA05B1C0082D794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -362,7 +364,8 @@
 		CC731A032CA03E2D009158EC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				CCF315762CA0608B0082D794 /* SearchScreen */,
+				CCBA346E2CA2DB990058507C /* MovieContentScreen */,
+				CCF315762CA0608B0082D794 /* MovieListScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -383,13 +386,37 @@
 			path = TabView;
 			sourceTree = "<group>";
 		};
-		CCF315762CA0608B0082D794 /* SearchScreen */ = {
+		CCBA346E2CA2DB990058507C /* MovieContentScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CCBA34722CA2DC1F0058507C /* ViewModel */,
+				CCBA346F2CA2DBA80058507C /* View */,
+			);
+			path = MovieContentScreen;
+			sourceTree = "<group>";
+		};
+		CCBA346F2CA2DBA80058507C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCBA34702CA2DC160058507C /* MovieContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCBA34722CA2DC1F0058507C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CCF315762CA0608B0082D794 /* MovieListScreen */ = {
 			isa = PBXGroup;
 			children = (
 				CCF3157A2CA060C90082D794 /* ViewModel */,
 				CCF315772CA0609C0082D794 /* View */,
 			);
-			path = SearchScreen;
+			path = MovieListScreen;
 			sourceTree = "<group>";
 		};
 		CCF315772CA0609C0082D794 /* View */ = {
@@ -549,6 +576,7 @@
 				CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */,
 				CC7319BD2C9D4C2F009158EC /* MovieSearchResultDTO+Mapping.swift in Sources */,
 				CC7319F32C9ED1C4009158EC /* DefaultMovieContentRepository.swift in Sources */,
+				CCBA34712CA2DC160058507C /* MovieContentView.swift in Sources */,
 				CC7319D82C9D9FF3009158EC /* MovieSearchResult.swift in Sources */,
 				CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */,
 				CCF315842CA07C630082D794 /* DIContainer.swift in Sources */,
