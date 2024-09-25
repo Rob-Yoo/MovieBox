@@ -57,18 +57,10 @@ struct MovieListView: View {
                                             let width = (geometry.size.width - 60) / 3
                                             
                                             NavigationLink {
-                                                NextView(id: movie.id)
+                                                MovieContentView(movieID: movie.id)
                                             } label: {
-                                                LazyImage(url: URL(string: movie.posterPath)!) { state in
-                                                    if let image = state.image {
-                                                        image
-                                                            .resizable()
-                                                            .frame(width: width, height: width * 1.3)
-                                                    } else {
-                                                        ImagePlaceholderView(width: width, height: width * 1.3)
-                                                    }
-                                                }
-                                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                                LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
+                                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
                                             }
                                             
                                         }
@@ -86,7 +78,7 @@ struct MovieListView: View {
                                 ForEach(viewModel.output.weeklyTrendMovieList, id: \.id) { item in
                                     ZStack(alignment: .leading) {
                                         weeklyTrendMovieItemView(item, geometry.size.width)
-                                        NavigationLink { NextView(id: item.id)
+                                        NavigationLink { MovieContentView(movieID: item.id)
                                             } label: {
                                                 EmptyView()
                                             }
@@ -123,16 +115,8 @@ struct MovieListView: View {
         
         return HStack(spacing: 20) {
             
-            LazyImage(url: URL(string: movie.posterPath)!) { state in
-                if let image = state.image {
-                    image
-                        .resizable()
-                        .frame(width: width, height: width * 1.3)
-                } else {
-                    ImagePlaceholderView(width: width, height: width * 1.3)
-                }
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+            LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
+                .clipShape(RoundedRectangle(cornerRadius: 10.0))
             
             VStack(alignment: .leading, spacing: 5) {
                 
@@ -146,18 +130,6 @@ struct MovieListView: View {
                     .foregroundStyle(.gray)
             }
         }
-    }
-}
-
-struct NextView: View {
-    private let id: Int
-    
-    init(id: Int) {
-        self.id = id
-    }
-    
-    var body: some View {
-        Text(id.formatted())
     }
 }
 
