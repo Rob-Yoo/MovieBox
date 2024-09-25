@@ -33,7 +33,7 @@ extension MovieContent {
     // 캐스팅
     struct MovieCredit {
         
-        struct Cast {
+        struct Cast: Hashable {
             let name: String
             let profilePath: String
         }
@@ -49,7 +49,7 @@ extension MovieContent {
     // 영화 동영상 갤러리
     struct MovieVideoGallery {
         
-        struct MovieVideo {
+        struct MovieVideo: Hashable {
             let name: String
             let videoPath: String
         }

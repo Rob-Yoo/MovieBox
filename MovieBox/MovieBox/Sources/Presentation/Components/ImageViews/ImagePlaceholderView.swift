@@ -20,7 +20,7 @@ struct ImagePlaceholderView: View {
         ZStack {
             Rectangle()
                 .fill(Color.gray.opacity(0.3))
-                .frame(width: width, height: width * 1.3)
+                .frame(width: width, height: height)
             
             Image(systemName: "popcorn.fill")
                 .font(.title)

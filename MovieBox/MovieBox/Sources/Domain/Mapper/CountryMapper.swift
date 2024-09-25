@@ -9,7 +9,7 @@ import Foundation
 
 final class CountryMapper {
     
-    private struct Country: Decodable {
+    private struct Country: Codable {
         let countryCode: String
         let name: String
         
@@ -20,13 +20,17 @@ final class CountryMapper {
     }
     
     static private let countryDictionary: [String: String] = {
-        if let path = Bundle.main.path(forResource: "Countries", ofType: "json") {
+    
+        if let path = Bundle.main.path(forResource: "Country", ofType: "json") {
             do {
-                let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
+                let jsonString = try String(contentsOfFile: path)
+                guard let jsonData = jsonString.data(using: .utf8) else { return [:] }
+                
                 let countries = try JSONDecoder().decode([Country].self, from: jsonData)
                 let countryDictionary = Dictionary(uniqueKeysWithValues: countries.map { ($0.countryCode, $0.name) })
                 
                 return countryDictionary
+//                return [:]
             } catch {
                 print(error.localizedDescription)
                 return [:]

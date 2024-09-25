@@ -15,7 +15,7 @@ final class DefaultMovieContentRepository: MovieContentRepository {
         self.datasource = datasource
     }
     
-    func fetchMovieContent(movieID: String) async -> Result<MovieContent, any Error> {
+    func fetchMovieContent(movieID: Int) async -> Result<MovieContent, any Error> {
         async let movieInfo = datasource.fetchMovieInfo(movieID: movieID)
         async let movieCredits = datasource.fetchMovieCredits(movieID: movieID)
         async let movieImageList = datasource.fetchMovieImageList(movieID: movieID)

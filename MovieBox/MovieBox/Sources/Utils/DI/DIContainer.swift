@@ -27,25 +27,58 @@ final class DIContainer {
     func buildContainer() -> Container {
         let container = Container()
         
+        buildDataSources(container)
+        buildRepositories(container)
+        buildUseCases(container)
+        buildViewModels(container)
+        
+        return container
+    }
+    
+    private func buildDataSources(_ container: Container) {
         container.register(MovieListDataSource.self) { _ in
             return DefaultMovieListDataSource()
         }
-
+        
+        container.register(MovieContentDataSource.self) { _ in
+            return DefaultMovieContentDataSource()
+        }
+    }
+    
+    private func buildRepositories(_ container: Container) {
         container.register(MovieListRepository.self) { resolver in
             let dataSource = resolver.resolve(MovieListDataSource.self)!
             return DefaultMovieListRepository(dataSource: dataSource)
         }
         
+        container.register(MovieContentRepository.self) { resolver in
+            let dataSource = resolver.resolve(MovieContentDataSource.self)!
+            return DefaultMovieContentRepository(datasource: dataSource)
+        }
+    }
+    
+    private func buildUseCases(_ container: Container) {
         container.register(MovieListUseCase.self) { resolver in
             let repository = resolver.resolve(MovieListRepository.self)!
             return DefaultMovieListUseCase(movieListRepository: repository)
         }
-
+        
+        container.register(MovieContentUseCase.self) { resolver in
+            let repository = resolver.resolve(MovieContentRepository.self)!
+            return DefaultMovieContentUseCase(movieContentRepository: repository)
+        }
+    }
+    
+    private func buildViewModels(_ container: Container) {
         container.register(MovieListViewModel.self) { resolver in
             let useCase = resolver.resolve(MovieListUseCase.self)!
             return MovieListViewModel(movieListUseCase: useCase)
         }
-        return container
+        
+        container.register(MovieContentViewModel.self) { resolver in
+            let useCase = resolver.resolve(MovieContentUseCase.self)!
+            return MovieContentViewModel(movieContentUseCase: useCase)
+        }
     }
 }
 

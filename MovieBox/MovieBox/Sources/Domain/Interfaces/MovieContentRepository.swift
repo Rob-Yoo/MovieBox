@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieContentRepository {
-    func fetchMovieContent(movieID: String) async -> Result<MovieContent, Error>
+    func fetchMovieContent(movieID: Int) async -> Result<MovieContent, Error>
 //    func fetchMovieInfo(movieID: String) async -> Result<MovieContent.MovieInfo, Error>
 //    func fetchSimilarMovieList(movieID: String) async -> Result<MovieContent.SimilarMovieGallery, Error>
 //    func fetchRecommendMovieList(movieID: String) async -> Result<MovieContent.RecommendationMovieGallery, Error>
