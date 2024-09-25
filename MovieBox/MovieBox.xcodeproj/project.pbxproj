@@ -48,6 +48,7 @@
 		CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */; };
 		CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC731A012CA037AF009158EC /* MovieListUseCase.swift */; };
 		CCBA34712CA2DC160058507C /* MovieContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34702CA2DC160058507C /* MovieContentView.swift */; };
+		CCBA34752CA3D5EE0058507C /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34742CA3D5ED0058507C /* ImagePlaceholderView.swift */; };
 		CCF315722CA045080082D794 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315712CA045080082D794 /* CustomTabView.swift */; };
 		CCF315732CA05A760082D794 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC7319992C9C0611009158EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CCF3157C2CA060D80082D794 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */; };
@@ -109,6 +110,7 @@
 		CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 		CC731A012CA037AF009158EC /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
 		CCBA34702CA2DC160058507C /* MovieContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentView.swift; sourceTree = "<group>"; };
+		CCBA34742CA3D5ED0058507C /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
 		CCF315712CA045080082D794 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		CCF315752CA05B1C0082D794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		CC731A042CA03E40009158EC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CCBA34732CA3D5DC0058507C /* PlaceholderView */,
 				CC731A052CA0407C009158EC /* TabView */,
 			);
 			path = Components;
@@ -408,6 +411,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CCBA34732CA3D5DC0058507C /* PlaceholderView */ = {
+			isa = PBXGroup;
+			children = (
+				CCBA34742CA3D5ED0058507C /* ImagePlaceholderView.swift */,
+			);
+			path = PlaceholderView;
 			sourceTree = "<group>";
 		};
 		CCF315762CA0608B0082D794 /* MovieListScreen */ = {
@@ -585,6 +596,7 @@
 				CC7319BB2C9D4445009158EC /* MoviePoster.swift in Sources */,
 				CC7319E02C9DA608009158EC /* WeeklyTrendMovieGallery.swift in Sources */,
 				CC7319E82C9E8F14009158EC /* TMDBRequest.swift in Sources */,
+				CCBA34752CA3D5EE0058507C /* ImagePlaceholderView.swift in Sources */,
 				CC7319D42C9D9221009158EC /* MovieVideoDTO+Mapping.swift in Sources */,
 				CC7319F82C9EEC25009158EC /* Moya+Extension.swift in Sources */,
 				CCF315872CA08FEC0082D794 /* InjectedStateObject.swift in Sources */,

@@ -56,28 +56,26 @@ struct MovieListView: View {
                                             
                                             let width = (geometry.size.width - 60) / 3
                                             
-                                            LazyImage(url: URL(string: movie.posterPath)!) { state in
-                                                if let image = state.image {
-                                                    
-                                                    NavigationLink {
-                                                        NextView(id: movie.id)
-                                                    } label: {
+                                            NavigationLink {
+                                                NextView(id: movie.id)
+                                            } label: {
+                                                LazyImage(url: URL(string: movie.posterPath)!) { state in
+                                                    if let image = state.image {
                                                         image
                                                             .resizable()
                                                             .frame(width: width, height: width * 1.3)
+                                                    } else {
+                                                        ImagePlaceholderView(width: width, height: width * 1.3)
                                                     }
-                                                    
-                                                } else {
-                                                    Rectangle()
-                                                        .fill(Color.gray.opacity(0.3))
-                                                        .frame(width: width, height: width * 1.3)
                                                 }
+                                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
                                             }
-                                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                            
                                         }
                                     }
                                     .frame(maxWidth: .infinity)
                                     .padding(.horizontal)
+                                    .padding(.bottom)
                             }
                             .scrollIndicators(.never)
                         }
@@ -131,9 +129,7 @@ struct MovieListView: View {
                         .resizable()
                         .frame(width: width, height: width * 1.3)
                 } else {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.3))
-                        .frame(width: width, height: width * 1.3)
+                    ImagePlaceholderView(width: width, height: width * 1.3)
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 10.0))

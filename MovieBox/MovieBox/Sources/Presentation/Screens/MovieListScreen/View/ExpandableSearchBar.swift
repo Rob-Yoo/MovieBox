@@ -61,7 +61,7 @@ struct ExpandableSearchBar: View {
                 
             }
             .padding(viewModel.output.showSearchView ? 10 : 0)
-            .background(viewModel.output.showSearchView ? Color.gray : Color.mainTheme)
+            .background(Color.gray)
             .clipShape(Capsule())
 
         }
