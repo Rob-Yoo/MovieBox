@@ -13,10 +13,10 @@ final class MovieListViewModel: ViewModel {
     @Published var output = Output()
     
     private var cancellables = Set<AnyCancellable>()
-    private var movieListUseCase: MovieListUseCase
     
-    init(movieListUseCase: MovieListUseCase) {
-        self.movieListUseCase = movieListUseCase
+    @Injected private var movieListUseCase: MovieListUseCase
+    
+    init() {
         transform()
     }
     

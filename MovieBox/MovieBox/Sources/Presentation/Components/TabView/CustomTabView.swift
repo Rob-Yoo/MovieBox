@@ -19,6 +19,16 @@ struct CustomTabView: View {
         appearance.backgroundColor = .mainTheme
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance
+        
+//        let navBarAppearance = UINavigationBarAppearance()
+//                    
+//        // 뒤로 가기 버튼의 텍스트 제거
+//        navBarAppearance.setBackIndicatorImage(UIImage(systemName: "chevron.left"), transitionMaskImage: UIImage(systemName: "chevron.left"))
+//        navBarAppearance.backButtonAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: -1000, vertical: 0)
+//        navBarAppearance.backgroundColor = .background
+//        UINavigationBar.appearance().standardAppearance = navBarAppearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+//        UINavigationBar.appearance().compactAppearance = navBarAppearance
     }
     
     var body: some View {
@@ -55,8 +65,7 @@ extension CustomTabView {
         var rootView: some View {
             switch self {
             case .box:
-                return AnyView(SimpleView()
-                    .background(Color.background))
+                return AnyView(MovieBoxView())
             case .movie:
                 return AnyView(MovieListView()
                     .background(Color.background))

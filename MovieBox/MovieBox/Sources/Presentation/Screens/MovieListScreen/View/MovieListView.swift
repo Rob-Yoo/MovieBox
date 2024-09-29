@@ -10,7 +10,7 @@ import NukeUI
 
 struct MovieListView: View {
     
-    @InjectedStateObject private var viewModel: MovieListViewModel
+    @StateObject private var viewModel = MovieListViewModel()
     
     var body: some View {
         NavigationStack {
@@ -132,8 +132,6 @@ struct MovieListView: View {
         }
     }
 }
-
-//struct Movie
 
 #Preview {
     MovieListView()

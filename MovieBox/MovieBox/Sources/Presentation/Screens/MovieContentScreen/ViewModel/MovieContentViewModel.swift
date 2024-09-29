@@ -14,10 +14,9 @@ final class MovieContentViewModel: ViewModel {
     @Published var output = Output()
     private var cancellables = Set<AnyCancellable>()
     
-    private let movieContentUseCase: MovieContentUseCase
+    @Injected private var movieContentUseCase: MovieContentUseCase
     
-    init(movieContentUseCase: MovieContentUseCase) {
-        self.movieContentUseCase = movieContentUseCase
+    init() {
         transform()
     }
     
@@ -38,14 +37,19 @@ extension MovieContentViewModel {
 
         switch result {
         case .success(let content):
+            let movieCard = (content.movieCard == nil) ? await MovieCard.makeMovieCard(movieInfo: content.info) : MovieCard.makeMovieCard(content.movieCard!)
+    
             DispatchQueue.main.async { [weak self] in
+                
                 self?.output.movieInfo = MovieInfo.makeModel(content.info)
                 self?.output.movieCredit = content.credit
                 self?.output.movieImageGallery = content.imageGallery
                 self?.output.movieVideoGallery = content.videoGallery.videoList.map { MovieVideo.makeModel($0) }
                 self?.output.similarMovies = content.similarMovieGallery
                 self?.output.recommendMovies = content.recmdMovieGallery
+                self?.output.movieCard = movieCard
             }
+
         case .failure(let error):
             print(#function, error.localizedDescription)
         }
@@ -65,5 +69,6 @@ extension MovieContentViewModel {
         var movieVideoGallery = [MovieVideo]()
         var similarMovies = MovieContent.SimilarMovieGallery(posterList: [])
         var recommendMovies = MovieContent.RecommendationMovieGallery(posterList: [])
+        var movieCard = MovieCard(movieID: 0, poster: nil, title: "", rate: 0, comment: "", creadedAt: .now)
     }
 }

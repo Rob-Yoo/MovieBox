@@ -27,6 +27,7 @@ struct LazyImageWrapperView: View {
                 image
                     .resizable()
                     .frame(width: size.width, height: size.height)
+
             } else {
                 ImagePlaceholderView(width: size.width, height: size.height)
             }
