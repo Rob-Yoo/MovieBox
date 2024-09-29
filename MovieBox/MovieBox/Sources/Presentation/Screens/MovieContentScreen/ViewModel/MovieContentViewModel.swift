@@ -41,6 +41,7 @@ extension MovieContentViewModel {
     
             DispatchQueue.main.async { [weak self] in
                 
+                self?.output.showActivityIndicator = false
                 self?.output.movieInfo = MovieInfo.makeModel(content.info)
                 self?.output.movieCredit = content.credit
                 self?.output.movieImageGallery = content.imageGallery
@@ -70,5 +71,6 @@ extension MovieContentViewModel {
         var similarMovies = MovieContent.SimilarMovieGallery(posterList: [])
         var recommendMovies = MovieContent.RecommendationMovieGallery(posterList: [])
         var movieCard = MovieCard(movieID: 0, poster: nil, title: "", rate: 0, comment: "", creadedAt: .now)
+        var showActivityIndicator = true
     }
 }

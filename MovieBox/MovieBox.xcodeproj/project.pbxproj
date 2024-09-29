@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CC529C792CA945FB001E5FEF /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = CC529C782CA945FB001E5FEF /* SwiftUIVisualEffects */; };
+		CC529C7F2CA9B267001E5FEF /* ActitivyIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */; };
 		CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319882C9C0468009158EC /* MovieBoxApp.swift */; };
 		CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198C2C9C0469009158EC /* Assets.xcassets */; };
 		CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198F2C9C0469009158EC /* Preview Assets.xcassets */; };
@@ -94,6 +95,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActitivyIndicatorView.swift; sourceTree = "<group>"; };
 		CC7319852C9C0468009158EC /* MovieBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7319882C9C0468009158EC /* MovieBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxApp.swift; sourceTree = "<group>"; };
 		CC73198C2C9C0469009158EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC529C7D2CA9B256001E5FEF /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
 		CC73197C2C9C0468009158EC = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +419,7 @@
 		CC731A042CA03E40009158EC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CC529C7D2CA9B256001E5FEF /* ActivityIndicator */,
 				CC9221972CA7BC4200C74F95 /* MoiveCardView */,
 				CC92218B2CA67E4C00C74F95 /* StarView */,
 				CCBA34732CA3D5DC0058507C /* ImageViews */,
@@ -733,6 +744,7 @@
 				CC7319F32C9ED1C4009158EC /* DefaultMovieContentRepository.swift in Sources */,
 				CC9221942CA69CBF00C74F95 /* MovieCard.swift in Sources */,
 				CCBA34712CA2DC160058507C /* MovieContentView.swift in Sources */,
+				CC529C7F2CA9B267001E5FEF /* ActitivyIndicatorView.swift in Sources */,
 				CCBA347B2CA40E4E0058507C /* LazyImageWrapperView.swift in Sources */,
 				CC7319D82C9D9FF3009158EC /* MovieSearchResult.swift in Sources */,
 				CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */,

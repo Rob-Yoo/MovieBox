@@ -367,6 +367,10 @@ struct MovieContentView: View {
                         .padding(.bottom, 30)
                         .padding(.trailing, 15)
                     }
+                    
+                    if (viewModel.output.showActivityIndicator) {
+                        ActitivyIndicatorView()
+                    }
                 }
 
             }

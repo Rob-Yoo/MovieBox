@@ -50,6 +50,14 @@ final class MovieListViewModel: ViewModel {
                 }
             }
             .store(in: &cancellables)
+        
+        input.showActivityIndicator
+            .sink { [weak self] value in
+                guard let self else { return }
+                
+                output.showActivityIndicator = value
+            }
+            .store(in: &cancellables)
     }
     
     private func fetchWeeklyTrendMovieList() async {
@@ -59,6 +67,7 @@ final class MovieListViewModel: ViewModel {
         case .success(let data):
             DispatchQueue.main.async { [weak self] in
                 self?.output.weeklyTrendMovieList = data.movieList
+                self?.input.showActivityIndicator.send(false)
             }
         case .failure(let error):
             print(#function, error.localizedDescription)
@@ -72,6 +81,7 @@ final class MovieListViewModel: ViewModel {
         case .success(let data):
             DispatchQueue.main.async { [weak self] in
                 self?.output.searchResults = data.results
+                self?.input.showActivityIndicator.send(false)
             }
         case .failure(let error):
             print(#function, error.localizedDescription)
@@ -85,6 +95,7 @@ extension MovieListViewModel {
         var searchButtonTapped = PassthroughSubject<Void, Never>()
         var showSearchView = PassthroughSubject<Bool, Never>()
         var loadWeeklyTrendMovieList = PassthroughSubject<Void, Never>()
+        var showActivityIndicator = PassthroughSubject<Bool, Never>()
     }
     
     struct Output {
@@ -92,5 +103,6 @@ extension MovieListViewModel {
         var showSearchView = false
         var number = 1
         var weeklyTrendMovieList = [WeeklyTrendMovieGallery.WeeklyTrendMovie]()
+        var showActivityIndicator = true
     }
 }

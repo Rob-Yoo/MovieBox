@@ -34,6 +34,7 @@ struct ExpandableSearchBar: View {
                         .foregroundStyle(.white)
                         .background(Color.gray)
                         .onSubmit {
+                            viewModel.input.showActivityIndicator.send(true)
                             viewModel.input.searchButtonTapped.send(())
                         }
                     
