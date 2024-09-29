@@ -49,8 +49,8 @@ struct MakeMovieCardView: View {
                         
                         Divider()
                         
-                        TextField("후기를 작성해보세요.", text: $viewModel.input.comment, axis: .vertical)
-                            .lineLimit(10...10)
+                        TextField("코멘트를 작성해보세요.", text: $viewModel.input.comment, axis: .vertical)
+                            .lineLimit(4...4)
                             .focused($isFocused)
                             .padding(.horizontal)
                             .onChange(of: isFocused) { value in

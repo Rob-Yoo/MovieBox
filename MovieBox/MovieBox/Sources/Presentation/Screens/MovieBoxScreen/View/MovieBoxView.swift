@@ -71,7 +71,7 @@ struct MovieBoxView: View {
                         
                         VStack(alignment: .leading, spacing: 20) {
                             Text("🍿 보관하고 싶은 영화를 검색")
-                            Text("🍿 나만의 후기를 작성하여 카드 제작")
+                            Text("🍿 나만의 코멘트를 작성하여 카드 제작")
                             Text("🍿 카드 덱을 뒤적거리며 추억 되살리기")
                         }
                         .font(.headline)
