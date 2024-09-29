@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC529C792CA945FB001E5FEF /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = CC529C782CA945FB001E5FEF /* SwiftUIVisualEffects */; };
+		CC529C7C2CA9480A001E5FEF /* Glur in Frameworks */ = {isa = PBXBuildFile; productRef = CC529C7B2CA9480A001E5FEF /* Glur */; };
 		CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319882C9C0468009158EC /* MovieBoxApp.swift */; };
 		CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198C2C9C0469009158EC /* Assets.xcassets */; };
 		CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198F2C9C0469009158EC /* Preview Assets.xcassets */; };
@@ -168,8 +170,10 @@
 				CC7319B02C9C0B94009158EC /* Swinject in Frameworks */,
 				CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */,
 				CC73199D2C9C07FB009158EC /* ShuffleIt in Frameworks */,
+				CC529C7C2CA9480A001E5FEF /* Glur in Frameworks */,
 				CC7319A02C9C0843009158EC /* Moya in Frameworks */,
 				CC7319A32C9C08CB009158EC /* NukeUI in Frameworks */,
+				CC529C792CA945FB001E5FEF /* SwiftUIVisualEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +626,8 @@
 				CC7319A82C9C09DA009158EC /* YouTubePlayerKit */,
 				CC7319AF2C9C0B94009158EC /* Swinject */,
 				CC92218F2CA67E8000C74F95 /* Cosmos */,
+				CC529C782CA945FB001E5FEF /* SwiftUIVisualEffects */,
+				CC529C7B2CA9480A001E5FEF /* Glur */,
 			);
 			productName = MovieBox;
 			productReference = CC7319852C9C0468009158EC /* MovieBox.app */;
@@ -660,6 +666,8 @@
 				CC7319A72C9C09DA009158EC /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 				CC7319AE2C9C0B94009158EC /* XCRemoteSwiftPackageReference "Swinject" */,
 				CC92218E2CA67E8000C74F95 /* XCRemoteSwiftPackageReference "Cosmos" */,
+				CC529C772CA945FB001E5FEF /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */,
+				CC529C7A2CA9480A001E5FEF /* XCRemoteSwiftPackageReference "Glur" */,
 			);
 			productRefGroup = CC7319862C9C0468009158EC /* Products */;
 			projectDirPath = "";
@@ -972,6 +980,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CC529C772CA945FB001E5FEF /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucasbrown/swiftui-visual-effects.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.3;
+			};
+		};
+		CC529C7A2CA9480A001E5FEF /* XCRemoteSwiftPackageReference "Glur" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joogps/Glur.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 		CC7319982C9C0611009158EC /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -1039,6 +1063,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CC529C782CA945FB001E5FEF /* SwiftUIVisualEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC529C772CA945FB001E5FEF /* XCRemoteSwiftPackageReference "swiftui-visual-effects" */;
+			productName = SwiftUIVisualEffects;
+		};
+		CC529C7B2CA9480A001E5FEF /* Glur */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC529C7A2CA9480A001E5FEF /* XCRemoteSwiftPackageReference "Glur" */;
+			productName = Glur;
+		};
 		CC7319992C9C0611009158EC /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CC7319982C9C0611009158EC /* XCRemoteSwiftPackageReference "realm-swift" */;

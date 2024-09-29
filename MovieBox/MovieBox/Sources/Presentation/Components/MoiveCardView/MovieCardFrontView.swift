@@ -31,37 +31,42 @@ struct MovieCardFrontView: View {
     var body: some View {
         
         MoviePosterView(width: width, height: height)
-            .blur(radius: 15.0)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.black.opacity(0.3))
-                    .frame(width: width, height: height)
-                    .overlay(alignment: .top) {
+                
+                ZStack {
+                    Rectangle()
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [.black.opacity(0.1), .black.opacity(0.98)]),
+                                startPoint: .center,
+                                endPoint: .bottom
+                            )
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                    
+                    VStack {
                         
-                        VStack(alignment: .center, spacing: 20) {
-                            
-                            MoviePosterView(width: width, height: height * 0.65)
-                            
-                            VStack(spacing: 25) {
-                                Text(movieCard.title)
-                                    .font(font)
-                                    .lineLimit(1)
-                                    .fontWeight(.semibold)
-                                    .foregroundStyle(.white)
-                                    .multilineTextAlignment(.center)
-                                
-                                StarView(
-                                    rating: movieCard.rate,
-                                    starSize: starSize,
-                                    isTouchable: false
-                                )
-                            }
-                            .padding(.vertical)
-                        }
-                        .padding()
-
+                        Spacer()
+                        
+                        Text(movieCard.title)
+                            .font(font)
+                            .lineLimit(1)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.white)
+                            .multilineTextAlignment(.center)
+                        
+                        StarView(
+                            rating: movieCard.rate,
+                            starSize: starSize,
+                            isTouchable: false
+                        )
                     }
+                    .padding(.horizontal)
+                    .padding(.bottom, 30)
+                }
+
+                
             }
     }
     

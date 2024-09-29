@@ -23,20 +23,25 @@ struct MovieBoxView: View {
             let screenWidth = geometry.size.width
             let screenHeight = geometry.size.height
             
-            VStack(spacing: 10) {
+            ZStack {
                 
                 let width = screenWidth * 0.75
                 
-                HStack {
-                    Text("무비 박스")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.white)
+                VStack {
+                    
+                    HStack {
+                        Text("무비 박스")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.white)
+                        
+                        Spacer()
+                    }
+                    .padding(.leading)
+                    .padding(.top)
                     
                     Spacer()
                 }
-                .padding(.leading)
-                .padding(.top)
                 
                 if (viewModel.output.movieCardList.isEmpty) {
                     EmptyView()
@@ -51,8 +56,6 @@ struct MovieBoxView: View {
                         self.index = context.index
                     }
                 }
-                
-                Spacer()
             }
             .onAppear {
                 viewModel.input.loadMovieCardList.send(())

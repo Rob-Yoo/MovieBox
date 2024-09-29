@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIVisualEffects
 
 struct MovieCardBackView: View {
     
@@ -23,23 +24,26 @@ struct MovieCardBackView: View {
     
     var body: some View {
         MoviePosterView(width: width, height: height)
-            .blur(radius: 10.0)
+            .rotation3DEffect(
+                .degrees(-180),
+                axis: (x: 0, y: 1, z: 0),
+                perspective: 0.5
+            )
+            .blurEffect()
+            .blurEffectStyle(.systemUltraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay {
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.black.opacity(0.5))
-                    .frame(width: width, height: height)
-                    .overlay {
-                        Text(movieCard.comment)
-                            .font(font)
-                            .foregroundStyle(.white)
-                            .rotation3DEffect(
-                                .degrees(-180),
-                                axis: (x: 0, y: 1, z: 0),
-                                perspective: 0.5
-                            )
-                            .padding()
-                    }
+                
+                Text(movieCard.comment)
+                    .font(font)
+                    .foregroundStyle(.white)
+                    .rotation3DEffect(
+                        .degrees(-180),
+                        axis: (x: 0, y: 1, z: 0),
+                        perspective: 0.5
+                    )
+                    .padding()
+                
             }
     }
     
@@ -48,7 +52,7 @@ struct MovieCardBackView: View {
         if let imageData = movieCard.poster, let uiImage = UIImage(data: imageData) {
             Image(uiImage: uiImage)
                 .resizable()
-                .frame(maxWidth: width, maxHeight: height)
+                .frame(width: width, height: height)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
         } else {
             EmptyView()
