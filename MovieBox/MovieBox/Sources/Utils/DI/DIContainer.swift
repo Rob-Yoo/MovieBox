@@ -30,7 +30,6 @@ final class DIContainer {
         buildDataSources(container)
         buildRepositories(container)
         buildUseCases(container)
-        buildViewModels(container)
         
         return container
     }
@@ -39,10 +38,17 @@ final class DIContainer {
         container.register(MovieListDataSource.self) { _ in
             return DefaultMovieListDataSource()
         }
+        .inObjectScope(.container)
         
         container.register(MovieContentDataSource.self) { _ in
             return DefaultMovieContentDataSource()
         }
+        .inObjectScope(.container)
+        
+        container.register(MovieBoxDataSource.self) { _ in
+            return DefaultMovieBoxDataSource()
+        }
+        .inObjectScope(.container)
     }
     
     private func buildRepositories(_ container: Container) {
@@ -50,11 +56,19 @@ final class DIContainer {
             let dataSource = resolver.resolve(MovieListDataSource.self)!
             return DefaultMovieListRepository(dataSource: dataSource)
         }
+        .inObjectScope(.container)
         
         container.register(MovieContentRepository.self) { resolver in
             let dataSource = resolver.resolve(MovieContentDataSource.self)!
             return DefaultMovieContentRepository(datasource: dataSource)
         }
+        .inObjectScope(.container)
+        
+        container.register(MovieBoxRepository.self) { resolver in
+            let dataSource = resolver.resolve(MovieBoxDataSource.self)!
+            return DefaultMovieBoxRepository(dataSource: dataSource)
+        }
+        .inObjectScope(.container)
     }
     
     private func buildUseCases(_ container: Container) {
@@ -62,24 +76,20 @@ final class DIContainer {
             let repository = resolver.resolve(MovieListRepository.self)!
             return DefaultMovieListUseCase(movieListRepository: repository)
         }
+        .inObjectScope(.container)
         
         container.register(MovieContentUseCase.self) { resolver in
-            let repository = resolver.resolve(MovieContentRepository.self)!
-            return DefaultMovieContentUseCase(movieContentRepository: repository)
+            let movieContentRepository = resolver.resolve(MovieContentRepository.self)!
+            let movieBoxRepository = resolver.resolve(MovieBoxRepository.self)!
+
+            return DefaultMovieContentUseCase(
+                movieContentRepository: movieContentRepository,
+                movieBoxRepository: movieBoxRepository
+            )
         }
+        .inObjectScope(.container)
     }
-    
-    private func buildViewModels(_ container: Container) {
-        container.register(MovieListViewModel.self) { resolver in
-            let useCase = resolver.resolve(MovieListUseCase.self)!
-            return MovieListViewModel(movieListUseCase: useCase)
-        }
-        
-        container.register(MovieContentViewModel.self) { resolver in
-            let useCase = resolver.resolve(MovieContentUseCase.self)!
-            return MovieContentViewModel(movieContentUseCase: useCase)
-        }
-    }
+
 }
 
 @propertyWrapper struct Injected<Dependency> {
