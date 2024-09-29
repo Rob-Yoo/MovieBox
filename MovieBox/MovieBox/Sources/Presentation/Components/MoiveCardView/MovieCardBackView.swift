@@ -30,7 +30,7 @@ struct MovieCardBackView: View {
                 perspective: 0.5
             )
             .blurEffect()
-            .blurEffectStyle(.systemUltraThinMaterial)
+            .blurEffectStyle(.systemThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .overlay {
                 
