@@ -56,7 +56,7 @@
 		CC9221922CA69BEA00C74F95 /* MakeMovieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221912CA69BEA00C74F95 /* MakeMovieCardViewModel.swift */; };
 		CC9221942CA69CBF00C74F95 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221932CA69CBF00C74F95 /* MovieCard.swift */; };
 		CC9221962CA6E7E500C74F95 /* ImageLoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221952CA6E7E500C74F95 /* ImageLoadManager.swift */; };
-		CC9221992CA7BC4D00C74F95 /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221982CA7BC4D00C74F95 /* MovieCardView.swift */; };
+		CC9221992CA7BC4D00C74F95 /* MovieCardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221982CA7BC4D00C74F95 /* MovieCardFrontView.swift */; };
 		CC92219D2CA8132200C74F95 /* MovieBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92219C2CA8132200C74F95 /* MovieBoxView.swift */; };
 		CC9221A02CA8133100C74F95 /* MovieBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92219F2CA8133100C74F95 /* MovieBoxViewModel.swift */; };
 		CCBA34712CA2DC160058507C /* MovieContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34702CA2DC160058507C /* MovieContentView.swift */; };
@@ -67,6 +67,7 @@
 		CCBA347E2CA4130D0058507C /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA347D2CA4130D0058507C /* MovieInfo.swift */; };
 		CCBA34802CA431C60058507C /* Country.json in Resources */ = {isa = PBXBuildFile; fileRef = CCBA347F2CA431C60058507C /* Country.json */; };
 		CCBA34822CA473F00058507C /* MovieVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34812CA473F00058507C /* MovieVideo.swift */; };
+		CCD08E902CA935DF005BB189 /* MovieCardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD08E8F2CA935DF005BB189 /* MovieCardBackView.swift */; };
 		CCF315722CA045080082D794 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315712CA045080082D794 /* CustomTabView.swift */; };
 		CCF315732CA05A760082D794 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC7319992C9C0611009158EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CCF3157C2CA060D80082D794 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */; };
@@ -134,7 +135,7 @@
 		CC9221912CA69BEA00C74F95 /* MakeMovieCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovieCardViewModel.swift; sourceTree = "<group>"; };
 		CC9221932CA69CBF00C74F95 /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
 		CC9221952CA6E7E500C74F95 /* ImageLoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadManager.swift; sourceTree = "<group>"; };
-		CC9221982CA7BC4D00C74F95 /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
+		CC9221982CA7BC4D00C74F95 /* MovieCardFrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardFrontView.swift; sourceTree = "<group>"; };
 		CC92219C2CA8132200C74F95 /* MovieBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxView.swift; sourceTree = "<group>"; };
 		CC92219F2CA8133100C74F95 /* MovieBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxViewModel.swift; sourceTree = "<group>"; };
 		CCBA34702CA2DC160058507C /* MovieContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentView.swift; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		CCBA347D2CA4130D0058507C /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		CCBA347F2CA431C60058507C /* Country.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Country.json; sourceTree = "<group>"; };
 		CCBA34812CA473F00058507C /* MovieVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVideo.swift; sourceTree = "<group>"; };
+		CCD08E8F2CA935DF005BB189 /* MovieCardBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardBackView.swift; sourceTree = "<group>"; };
 		CCF315712CA045080082D794 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		CCF315752CA05B1C0082D794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -474,7 +476,8 @@
 		CC9221972CA7BC4200C74F95 /* MoiveCardView */ = {
 			isa = PBXGroup;
 			children = (
-				CC9221982CA7BC4D00C74F95 /* MovieCardView.swift */,
+				CC9221982CA7BC4D00C74F95 /* MovieCardFrontView.swift */,
+				CCD08E8F2CA935DF005BB189 /* MovieCardBackView.swift */,
 			);
 			path = MoiveCardView;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				CCF3157E2CA060E80082D794 /* MovieListView.swift in Sources */,
 				CC7319EA2C9E95B3009158EC /* KobisRequest.swift in Sources */,
 				CC7319B92C9C5173009158EC /* DailyBoxOffice.swift in Sources */,
+				CCD08E902CA935DF005BB189 /* MovieCardBackView.swift in Sources */,
 				CC7319972C9C0481009158EC /* API.swift in Sources */,
 				CCF315722CA045080082D794 /* CustomTabView.swift in Sources */,
 				CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */,
@@ -734,7 +738,7 @@
 				CC7319BB2C9D4445009158EC /* MoviePoster.swift in Sources */,
 				CC7319E02C9DA608009158EC /* WeeklyTrendMovieGallery.swift in Sources */,
 				CC9221882CA5B3AF00C74F95 /* DefaultMovieBoxRepository.swift in Sources */,
-				CC9221992CA7BC4D00C74F95 /* MovieCardView.swift in Sources */,
+				CC9221992CA7BC4D00C74F95 /* MovieCardFrontView.swift in Sources */,
 				CC7319E82C9E8F14009158EC /* TMDBRequest.swift in Sources */,
 				CCBA347E2CA4130D0058507C /* MovieInfo.swift in Sources */,
 				CCBA34752CA3D5EE0058507C /* ImagePlaceholderView.swift in Sources */,

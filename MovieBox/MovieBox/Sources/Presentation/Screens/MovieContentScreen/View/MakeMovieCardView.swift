@@ -12,6 +12,7 @@ struct MakeMovieCardView: View {
     @StateObject private var viewModel: MakeMovieCardViewModel
     @FocusState private var isFocused
     @Environment(\.dismiss) private var dismiss
+    @State private var isFlipped = false
     
     init(movieCard: MovieCard) {
         _viewModel = StateObject(wrappedValue: MakeMovieCardViewModel(movieCard: movieCard))
@@ -52,17 +53,22 @@ struct MakeMovieCardView: View {
                             .lineLimit(10...10)
                             .focused($isFocused)
                             .padding(.horizontal)
+                            .onChange(of: isFocused) { value in
+                                if (value == true) {
+                                    withAnimation {
+                                        isFlipped = true
+                                    }
+                                }
+                            }
                         
                         Divider()
                         
                         let width = screenWidth * 0.63
-                        
-                        MovieCardView(
+
+                        CardView(
                             movieCard: viewModel.output.movieCard,
                             width: width,
-                            height: width * 1.45,
-                            starSize: 25,
-                            font: .headline
+                            height: width * 1.45
                         )
                         .padding(.vertical)
                         
@@ -70,8 +76,11 @@ struct MakeMovieCardView: View {
                         
                     }
                     .padding(.vertical)
-                    .onTapGesture {
+                }
+                .onTapGesture {
+                    withAnimation {
                         isFocused = false
+                        isFlipped = false
                     }
                 }
                 .background(Color.background)
@@ -99,6 +108,39 @@ struct MakeMovieCardView: View {
 
         }
         
+    }
+    
+    @ViewBuilder
+    func CardView(movieCard: MovieCard, width: CGFloat, height: CGFloat) -> some View {
+
+        VStack {
+            if isFlipped {
+                MovieCardBackView(
+                    movieCard: movieCard,
+                    width: width,
+                    height: height,
+                    font: .body
+                )
+            } else {
+                MovieCardFrontView(
+                    movieCard: movieCard,
+                    width: width,
+                    height: height,
+                    starSize: 25,
+                    font: .headline
+                )
+            }
+        }
+        .rotation3DEffect(
+            .degrees(isFlipped ? 180 : 0),
+            axis: (x: 0, y: 1, z: 0),
+            perspective: 0.5
+        )
+        .onTapGesture {
+            withAnimation {
+                isFlipped.toggle()
+            }
+        }
     }
 }
 
