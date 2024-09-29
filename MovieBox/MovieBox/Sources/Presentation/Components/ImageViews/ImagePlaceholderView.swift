@@ -17,15 +17,16 @@ struct ImagePlaceholderView: View {
     }
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.gray.opacity(0.3))
-                .frame(width: width, height: height)
-            
-            Image(systemName: "popcorn.fill")
-                .font(.title)
-                .tint(Color.white)
-        }
+        Rectangle()
+            .fill(Color.gray.opacity(0.3))
+            .frame(width: width, height: height)
+            .overlay {
+                
+                Image(systemName: "popcorn.fill")
+                    .font(.title)
+                    .tint(Color.white)
+                
+            }
     }
 }
 

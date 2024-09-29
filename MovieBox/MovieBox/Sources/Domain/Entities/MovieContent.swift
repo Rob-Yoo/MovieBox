@@ -14,6 +14,7 @@ struct MovieContent {
     let videoGallery: MovieVideoGallery
     let similarMovieGallery: SimilarMovieGallery
     let recmdMovieGallery: RecommendationMovieGallery
+    var movieCard: MovieCard?
 }
 
 extension MovieContent {
@@ -65,5 +66,14 @@ extension MovieContent {
     // 추천 영화 갤러리
     struct RecommendationMovieGallery {
         let posterList: [MoviePoster]
+    }
+    
+    struct MovieCard {
+        let movieID: Int
+        let poster: Data?
+        let title: String
+        let rate: Int
+        let comment: String
+        let createdAt: Date
     }
 }
