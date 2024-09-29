@@ -46,11 +46,12 @@ struct MovieBoxView: View {
                                 }
                             } label: {
                                 Image(systemName: "flame")
+                                    .font(.title3)
                             }
                             .disabled(viewModel.output.isRemovingMode)
                         }
                     }
-                    .padding(.leading)
+                    .padding(.horizontal)
                     .padding(.top)
                     
                     Spacer()

@@ -67,11 +67,9 @@ extension CustomTabView {
             case .box:
                 return AnyView(MovieBoxView())
             case .movie:
-                return AnyView(MovieListView()
-                    .background(Color.background))
+                return AnyView(MovieListView())
             case .setting:
-                return AnyView(SimpleView()
-                    .background(Color.background))
+                return AnyView(SettingView())
             }
         }
     }

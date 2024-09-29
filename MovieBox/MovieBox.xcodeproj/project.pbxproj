@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CC529C792CA945FB001E5FEF /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = CC529C782CA945FB001E5FEF /* SwiftUIVisualEffects */; };
 		CC529C7F2CA9B267001E5FEF /* ActitivyIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */; };
+		CC529C822CA9BAEB001E5FEF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C812CA9BAEB001E5FEF /* SettingView.swift */; };
 		CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319882C9C0468009158EC /* MovieBoxApp.swift */; };
 		CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198C2C9C0469009158EC /* Assets.xcassets */; };
 		CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198F2C9C0469009158EC /* Preview Assets.xcassets */; };
@@ -96,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActitivyIndicatorView.swift; sourceTree = "<group>"; };
+		CC529C812CA9BAEB001E5FEF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		CC7319852C9C0468009158EC /* MovieBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7319882C9C0468009158EC /* MovieBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxApp.swift; sourceTree = "<group>"; };
 		CC73198C2C9C0469009158EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -186,6 +188,14 @@
 				CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */,
 			);
 			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		CC529C802CA9BA6E001E5FEF /* SettingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CC529C812CA9BAEB001E5FEF /* SettingView.swift */,
+			);
+			path = SettingScreen;
 			sourceTree = "<group>";
 		};
 		CC73197C2C9C0468009158EC = {
@@ -409,6 +419,7 @@
 		CC731A032CA03E2D009158EC /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CC529C802CA9BA6E001E5FEF /* SettingScreen */,
 				CC92219A2CA8130A00C74F95 /* MovieBoxScreen */,
 				CCBA346E2CA2DB990058507C /* MovieContentScreen */,
 				CCF315762CA0608B0082D794 /* MovieListScreen */,
@@ -731,6 +742,7 @@
 				CC7319CC2C9D63E2009158EC /* MovieDetailDTO+Mapping.swift in Sources */,
 				CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */,
 				CC9221862CA5B24E00C74F95 /* MovieBoxRepository.swift in Sources */,
+				CC529C822CA9BAEB001E5FEF /* SettingView.swift in Sources */,
 				CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */,
 				CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */,
 				CCF3157E2CA060E80082D794 /* MovieListView.swift in Sources */,
