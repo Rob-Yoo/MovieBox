@@ -45,8 +45,8 @@ struct MovieBoxView: View {
                                     viewModel.input.isRemovingMode.send(true)
                                 }
                             } label: {
-                                Image(systemName: "xmark.bin.fill")
-                                    .font(.title3)
+                                Image(systemName: "ellipsis.circle")
+                                    .font(.title2)
                             }
                             .disabled(viewModel.output.isRemovingMode)
                         }
