@@ -88,7 +88,7 @@ struct MovieBoxView: View {
                             ScrollView(.horizontal) {
                                 
                                 HStack(spacing: 10) {
-                                    ForEach(viewModel.output.movieCardList.reversed(), id: \.movieID) { card in
+                                    ForEach(viewModel.output.movieCardList, id: \.movieID) { card in
                                         
                                         RemovableMovieCardView(card, width: width, height: width * 1.5)
                                         
@@ -104,7 +104,7 @@ struct MovieBoxView: View {
                     }
                     else {
                         ShuffleDeck(
-                            viewModel.output.movieCardList.reversed(),
+                            viewModel.output.movieCardList,
                             initialIndex: 0
                         ) { movieCard in
                             CardView(movieCard: movieCard, width: width, height: width * 1.5)

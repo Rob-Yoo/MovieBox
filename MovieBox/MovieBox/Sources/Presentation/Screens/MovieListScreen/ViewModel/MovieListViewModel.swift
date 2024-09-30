@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 final class MovieListViewModel: ViewModel {
+    
     var input = Input()
     @Published var output = Output()
     
@@ -58,6 +59,23 @@ final class MovieListViewModel: ViewModel {
                 output.showActivityIndicator = value
             }
             .store(in: &cancellables)
+        
+        input.paginationTrigger
+            .sink { [weak self] _ in
+                guard let self else { return }
+
+                Task { await self.fetchSearchResult(query: self.input.searchTextField, isPaging: true) }
+                output.showActivityIndicator = true
+            }
+            .store(in: &cancellables)
+        
+        input.scrollToTop
+            .sink { [weak self] value in
+                guard let self else { return }
+                
+                output.scrollToTop = value
+            }
+            .store(in: &cancellables)
     }
     
     private func fetchWeeklyTrendMovieList() async {
@@ -80,7 +98,14 @@ final class MovieListViewModel: ViewModel {
         switch result {
         case .success(let data):
             DispatchQueue.main.async { [weak self] in
-                self?.output.searchResults = data.results
+                
+                if (isPaging) {
+                    self?.output.searchResults += data.results
+                } else {
+                    self?.output.searchResults = data.results
+                    self?.output.scrollToTop = true
+                }
+
                 self?.input.showActivityIndicator.send(false)
             }
         case .failure(let error):
@@ -96,6 +121,8 @@ extension MovieListViewModel {
         var showSearchView = PassthroughSubject<Bool, Never>()
         var loadWeeklyTrendMovieList = PassthroughSubject<Void, Never>()
         var showActivityIndicator = PassthroughSubject<Bool, Never>()
+        var paginationTrigger = PassthroughSubject<Void, Never>()
+        var scrollToTop = PassthroughSubject<Bool, Never>()
     }
     
     struct Output {
@@ -104,5 +131,6 @@ extension MovieListViewModel {
         var number = 1
         var weeklyTrendMovieList = [WeeklyTrendMovieGallery.WeeklyTrendMovie]()
         var showActivityIndicator = true
+        var scrollToTop = false
     }
 }

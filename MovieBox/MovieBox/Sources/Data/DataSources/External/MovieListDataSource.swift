@@ -22,6 +22,11 @@ final class DefaultMovieListDataSource: MovieListDataSource {
     private var totalPages = 1
     
     func fetchSearchResult(query: String, isPaging: Bool) async -> Result<MovieSearchResultDTO, Error> {
+        
+        if (isPaging == false) {
+            page = 1
+        }
+        
         guard page <= totalPages else {
             return .success(MovieSearchResultDTO(results: [], totalPages: 0))
         }
@@ -33,7 +38,7 @@ final class DefaultMovieListDataSource: MovieListDataSource {
         switch result {
         case .success(let data):
             let mapResult = data.mapResult(MovieSearchResultDTO.self)
-            
+
             switch mapResult {
             case .success(let dto):
                 totalPages = dto.totalPages

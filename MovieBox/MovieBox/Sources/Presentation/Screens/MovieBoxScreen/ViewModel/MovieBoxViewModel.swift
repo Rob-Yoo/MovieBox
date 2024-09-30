@@ -43,6 +43,7 @@ final class MovieBoxViewModel: ViewModel {
                         createdAt: $1.createdAt
                     )
                 }
+                .reversed()
             }
             .store(in: &cancellables)
         

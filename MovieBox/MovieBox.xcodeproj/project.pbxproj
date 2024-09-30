@@ -10,6 +10,7 @@
 		CC529C792CA945FB001E5FEF /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = CC529C782CA945FB001E5FEF /* SwiftUIVisualEffects */; };
 		CC529C7F2CA9B267001E5FEF /* ActitivyIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */; };
 		CC529C822CA9BAEB001E5FEF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C812CA9BAEB001E5FEF /* SettingView.swift */; };
+		CC529C852CAA7125001E5FEF /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C842CAA7125001E5FEF /* UINavigationController+Extension.swift */; };
 		CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319882C9C0468009158EC /* MovieBoxApp.swift */; };
 		CC73198D2C9C0469009158EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198C2C9C0469009158EC /* Assets.xcassets */; };
 		CC7319902C9C0469009158EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC73198F2C9C0469009158EC /* Preview Assets.xcassets */; };
@@ -98,6 +99,7 @@
 /* Begin PBXFileReference section */
 		CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActitivyIndicatorView.swift; sourceTree = "<group>"; };
 		CC529C812CA9BAEB001E5FEF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		CC529C842CAA7125001E5FEF /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		CC7319852C9C0468009158EC /* MovieBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7319882C9C0468009158EC /* MovieBoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxApp.swift; sourceTree = "<group>"; };
 		CC73198C2C9C0469009158EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 				CC529C812CA9BAEB001E5FEF /* SettingView.swift */,
 			);
 			path = SettingScreen;
+			sourceTree = "<group>";
+		};
+		CC529C832CAA7111001E5FEF /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				CC529C842CAA7125001E5FEF /* UINavigationController+Extension.swift */,
+			);
+			path = NavigationController;
 			sourceTree = "<group>";
 		};
 		CC73197C2C9C0468009158EC = {
@@ -430,6 +440,7 @@
 		CC731A042CA03E40009158EC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CC529C832CAA7111001E5FEF /* NavigationController */,
 				CC529C7D2CA9B256001E5FEF /* ActivityIndicator */,
 				CC9221972CA7BC4200C74F95 /* MoiveCardView */,
 				CC92218B2CA67E4C00C74F95 /* StarView */,
@@ -721,6 +732,7 @@
 				CC92218A2CA67B0100C74F95 /* MakeMovieCardView.swift in Sources */,
 				CC7319EE2C9E9774009158EC /* DateFormatManager.swift in Sources */,
 				CC9221822CA58A7E00C74F95 /* MovieCardDTO.swift in Sources */,
+				CC529C852CAA7125001E5FEF /* UINavigationController+Extension.swift in Sources */,
 				CC7319C92C9D60AD009158EC /* CountryMapper.swift in Sources */,
 				CC92219D2CA8132200C74F95 /* MovieBoxView.swift in Sources */,
 				CCBA34772CA3D8E90058507C /* MovieContentViewModel.swift in Sources */,

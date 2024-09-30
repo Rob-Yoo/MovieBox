@@ -38,39 +38,49 @@ struct MovieListView: View {
                                 .padding(.bottom, 50)
                             }
                             else {
-                                ScrollView {
-                                    
-                                    HStack {
-                                        Text("검색 결과")
-                                            .font(.title)
-                                            .fontWeight(.bold)
-                                            .foregroundStyle(.white)
-                                            .padding(.leading)
-                                        Spacer()
-                                    }
-                                    
-                                    LazyVGrid(columns: [
-                                        GridItem(.flexible()),
-                                        GridItem(.flexible()),
-                                        GridItem(.flexible())], spacing: 10) {
-                                            ForEach(viewModel.output.searchResults, id: \.self) { movie in
-                                                
-                                                let width = (geometry.size.width - 60) / 3
-                                                
-                                                NavigationLink {
-                                                    MovieContentView(movieID: movie.id)
-                                                } label: {
-                                                    LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
-                                                        .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                                                }
-                                                
-                                            }
+                                ScrollViewReader { proxy in
+                                    ScrollView {
+                                        HStack {
+                                            Text("검색 결과")
+                                                .font(.title)
+                                                .fontWeight(.bold)
+                                                .foregroundStyle(.white)
+                                                .padding(.leading)
+                                                .id(0)
+                                            Spacer()
                                         }
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.horizontal)
-                                        .padding(.bottom)
+                                        LazyVGrid(columns: [
+                                            GridItem(.flexible()),
+                                            GridItem(.flexible()),
+                                            GridItem(.flexible())], spacing: 10) {
+                                                ForEach(viewModel.output.searchResults.indices, id: \.self) { index in
+                                                    let movie = viewModel.output.searchResults[index]
+                                                    let width = (geometry.size.width - 60) / 3
+                                                    
+                                                    NavigationLink {
+                                                        MovieContentView(movieID: movie.id)
+                                                    } label: {
+                                                        LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
+                                                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                                            .onAppear {
+                                                                
+                                                                if (index == viewModel.output.searchResults.count - 5) {
+                                                                    viewModel.input.paginationTrigger.send(())
+                                                                }
+                                                            }
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.horizontal)
+                                            .padding(.bottom)
+                                    }
+                                    .onChange(of: viewModel.output.scrollToTop) { value in
+                                        
+                                    }
+                                    .scrollIndicators(.never)
                                 }
-                                .scrollIndicators(.never)
                             }
 
                         } else {
