@@ -45,7 +45,7 @@ struct MovieBoxView: View {
                                     viewModel.input.isRemovingMode.send(true)
                                 }
                             } label: {
-                                Image(systemName: "flame")
+                                Image(systemName: "xmark.bin.fill")
                                     .font(.title3)
                             }
                             .disabled(viewModel.output.isRemovingMode)
@@ -125,6 +125,7 @@ struct MovieBoxView: View {
                 
                 Button("삭제", role: .destructive) {
                     viewModel.input.removeMovieCardsTrigger.send(())
+                    willRemovingStates.removeAll()
                 }
             }
             .toolbar(viewModel.output.isRemovingMode ? .hidden : .visible, for: .tabBar)
@@ -212,7 +213,7 @@ struct MovieBoxView: View {
                     
                     if (willRemovingState) {
                         
-                        Image(systemName: "flame.circle.fill")
+                        Image(systemName: "checkmark.circle.fill")
                             .resizable()
                             .frame(width: cWidth, height: cWidth)
                             .onTapGesture {
