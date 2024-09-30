@@ -103,7 +103,9 @@ final class MovieListViewModel: ViewModel {
                     self?.output.searchResults += data.results
                 } else {
                     self?.output.searchResults = data.results
-                    self?.output.scrollToTop = true
+                    if !(data.results.isEmpty) {
+                        self?.output.scrollToTop = true                        
+                    }
                 }
 
                 self?.input.showActivityIndicator.send(false)
