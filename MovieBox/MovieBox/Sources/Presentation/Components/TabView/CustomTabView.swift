@@ -12,24 +12,7 @@ struct CustomTabView: View {
     
     @State private var activeTab: Tab = .box
     
-    init() {
-        let appearance = UITabBarAppearance()
-        
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .mainTheme
-        UITabBar.appearance().standardAppearance = appearance
-        UITabBar.appearance().scrollEdgeAppearance = appearance
-        
-//        let navBarAppearance = UINavigationBarAppearance()
-//                    
-//        // 뒤로 가기 버튼의 텍스트 제거
-//        navBarAppearance.setBackIndicatorImage(UIImage(systemName: "chevron.left"), transitionMaskImage: UIImage(systemName: "chevron.left"))
-//        navBarAppearance.backButtonAppearance.normal.titlePositionAdjustment = UIOffset(horizontal: -1000, vertical: 0)
-//        navBarAppearance.backgroundColor = .background
-//        UINavigationBar.appearance().standardAppearance = navBarAppearance
-//        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-//        UINavigationBar.appearance().compactAppearance = navBarAppearance
-    }
+    init() {}
     
     var body: some View {
         TabView(selection: $activeTab) {

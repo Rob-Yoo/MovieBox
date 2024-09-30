@@ -8,6 +8,14 @@
 import SwiftUI
 import YouTubePlayerKit
 
+struct ScrollOffsetPreferenceKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value += nextValue()
+    }
+}
+
 struct MovieContentView: View {
     
     private var movieID: Int
@@ -17,6 +25,8 @@ struct MovieContentView: View {
     }
     @State private var shouldExpand = false
     @State private var showExpandingButton = false
+    @State private var isAtTop = true
+    @Environment(\.dismiss) private var dismiss
     
     init(movieID: Int) {
         self.movieID = movieID
@@ -32,6 +42,7 @@ struct MovieContentView: View {
                 let screenHeight = geometry.size.height
                 
                 ZStack {
+                    
                     ScrollView {
                         
                         LazyVStack {
@@ -334,7 +345,16 @@ struct MovieContentView: View {
                             
                         }
                         .padding(.bottom)
-                        
+                        .overlay(alignment: .top) {
+                            GeometryReader { geometry in
+                                Color.clear
+                                    .preference(key: ScrollOffsetPreferenceKey.self, value: geometry.frame(in: .global).origin.y)
+                            }
+                            .frame(height: 0)
+                        }
+                    }
+                    .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
+                        isAtTop = value >= 0
                     }
                     .background(Color.background)
                     .ignoresSafeArea(edges: .top)
@@ -372,6 +392,19 @@ struct MovieContentView: View {
                         ActitivyIndicatorView()
                     }
                 }
+                .navigationBarBackButtonHidden()
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .foregroundStyle(.white)
+                        }
+                    }
+                }
+                .navigationTitle(isAtTop ? "" : viewModel.output.movieInfo.title)
+                .navigationBarTitleDisplayMode(.inline)
 
             }
             .task {

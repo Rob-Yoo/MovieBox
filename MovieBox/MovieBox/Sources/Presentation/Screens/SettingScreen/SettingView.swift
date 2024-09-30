@@ -100,7 +100,8 @@ struct SettingView: View {
 
 struct PrivacyPolicyView: View {
     
-    var content = Literal.privacyPolicy
+    private var content = Literal.privacyPolicy
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         
@@ -120,6 +121,17 @@ struct PrivacyPolicyView: View {
             .background(Color.background)
             .toolbar(.hidden, for: .tabBar)
             .navigationTitle("개인정보 처리방침")
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
         }
         
     }

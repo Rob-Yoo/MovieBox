@@ -104,6 +104,17 @@ struct MakeMovieCardView: View {
                     }
                     .disabled(!viewModel.output.isValidate)
                 })
+                .navigationBarBackButtonHidden()
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .foregroundStyle(.white)
+                        }
+                    }
+                }
             }
 
         }
