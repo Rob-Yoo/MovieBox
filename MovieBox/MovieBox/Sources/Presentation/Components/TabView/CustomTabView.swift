@@ -20,7 +20,9 @@ struct CustomTabView: View {
             ForEach(Tab.allCases, id: \.hashValue) { tab in
                 tab.rootView
                     .tag(tab)
-                    .tabItem { tab.tabBarImage }
+                    .tabItem {
+                        tab.tabBarImage
+                    }
             }
             
         }
@@ -39,9 +41,9 @@ extension CustomTabView {
             case .box:
                 return Image(systemName: "shippingbox.fill")
             case .movie:
-                return Image(systemName: "movieclapper")
+                return Image(systemName: "movieclapper.fill")
             case .setting:
-                return Image(systemName: "gearshape")
+                return Image(systemName: "gearshape.fill")
             }
         }
         
@@ -55,12 +57,6 @@ extension CustomTabView {
                 return AnyView(SettingView())
             }
         }
-    }
-}
-
-struct SimpleView: View {
-    var body: some View {
-        return Text("공사중...")
     }
 }
 

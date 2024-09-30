@@ -25,7 +25,7 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MovieBoxIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ikG-QM-jEh">
                                 <rect key="frame" x="71.666666666666686" y="301" width="250" height="250"/>
-                                <color key="tintColor" name="MainTheme"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="cwb-xc-1gg"/>
                                     <constraint firstAttribute="height" constant="250" id="e2Y-FB-7sl"/>
@@ -33,12 +33,12 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="ikG-QM-jEh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4yw-0u-dYw"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
                             <constraint firstItem="ikG-QM-jEh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="HIF-qa-pwH"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
                         </constraints>
                     </view>
@@ -50,8 +50,8 @@
     </scenes>
     <resources>
         <image name="MovieBoxIcon" width="341.33334350585938" height="341.33334350585938"/>
-        <namedColor name="MainTheme">
-            <color red="0.89803921568627454" green="0.12156862745098039" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Background">
+            <color red="0.050980392156862744" green="0.098039215686274508" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -13,10 +13,10 @@ struct MovieBoxApp: App {
     init() {
         let tabAp = UITabBarAppearance()
         
-        tabAp.configureWithOpaqueBackground()
-        tabAp.backgroundColor = .mainTheme
+        tabAp.backgroundColor = .clear
         UITabBar.appearance().standardAppearance = tabAp
         UITabBar.appearance().scrollEdgeAppearance = tabAp
+        UITabBar.appearance().unselectedItemTintColor = .lightGray
         
         let navAp1 = UINavigationBarAppearance()
         let navAp2 = UINavigationBarAppearance()
