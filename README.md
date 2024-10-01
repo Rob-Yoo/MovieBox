@@ -71,9 +71,8 @@
 <br>
 <br>
 
-- DefaultMovieContentUseCase
-
-  - 내/외부 Repository를 조합하여 완전한 Entity 데이터 생성
+- 내/외부 Repository를 조합하여 완전한 Entity 데이터 생성
+- ViewModel의 책임을 View와의 데이터 바인딩 역할로 제한하기 위해 UseCase 도입
 
 <br>
 <br>
@@ -86,7 +85,27 @@
 <br>
 <br>
 
-- MovieContentViewModel
+- Input으로는 PassThroughSubject, Output은 @Published를 활용하여 View와 데이터 바인딩
+- Entity를 Presentation Model로 가공하여 View가 직접 Entity를 가공하지 않게 함
 
-  - Input으로는 PassThroughSubject, Output은 @Published를 활용하여 View와 데이터 바인딩
-  - Entity를 Presentation Model로 가공하여 View가 직접 Entity를 가공하지 않게 함
+
+<br>
+<b> DI Container </b>
+
+<br>
+<br>
+<image src="https://github.com/user-attachments/assets/f770ee06-8f0b-41eb-9f71-2f044c8653a0" width = "700"">
+
+<br>
+<br>
+
+- DI Container 도입 이유
+
+  - ViewModel 객체를 하나 만들기 위해서 일일히 UseCase, Repository, DataSource 구현체를 생성하여 주입시키기 번거로움
+  - 영화 상세 정보 화면의 경우 다른 영화 상세 정보 화면으로 넘어갈 수 있어 동일한 Resolve 체인이 반복적으로 생성될 수 있기 때문에 각각의 구현체 인스턴스를 단일로 유지하여 메모리적 이점을 가져가고자 하였음
+ 
+- DI Container 활용 방법
+
+  - MovieContentViewModel에서 UseCase를 주입받는 코드를 @Injected 프로퍼티 래퍼를 통해 추상화
+  - 대부분의 구현체들은 단일로 유지되게 설정하였지만, 영화 검색 결과 화면에 사용되는 DataSource 구현체의 경우 Pagination 관련 상태값을 가지고 있기 때문에 매번 새로운 인스턴스를 생성되게 설정
+
