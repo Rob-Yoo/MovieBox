@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieContentUseCase {
-    func fetchMovieContent(movieID: Int) async -> Result<MovieContent, Error>
+    func fetchMovieContent(movieID: Int) async -> MovieContent
     func saveMovieCard(_ movieCard: MovieContent.MovieCard)
     func updateMovieCard(_ movieCard: MovieContent.MovieCard)
 }
@@ -26,17 +26,12 @@ final class DefaultMovieContentUseCase: MovieContentUseCase {
         self.movieBoxRepository = movieBoxRepository
     }
     
-    func fetchMovieContent(movieID: Int) async -> Result<MovieContent, Error> {
-        let result = await movieContentRepository.fetchMovieContent(movieID: movieID)
+    func fetchMovieContent(movieID: Int) async -> MovieContent {
+        var movieContent = await movieContentRepository.fetchMovieContent(movieID: movieID)
         let movieCard = await fetchMovieCard(movieID: movieID)
         
-        switch result {
-        case .success(var content):
-            content.movieCard = movieCard
-            return .success(content)
-        case .failure(let error):
-            return .failure(error)
-        }
+        movieContent.movieCard = movieCard
+        return movieContent
     }
     
     func saveMovieCard(_ movieCard: MovieContent.MovieCard) {

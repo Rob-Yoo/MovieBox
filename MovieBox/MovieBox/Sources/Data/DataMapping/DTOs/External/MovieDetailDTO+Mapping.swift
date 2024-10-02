@@ -51,4 +51,18 @@ extension MovieInfoDTO {
             releaseYear: releaseYear
         )
     }
+    
+    static func defaults() -> Self {
+        return MovieInfoDTO(
+            id: 0,
+            title: "",
+            backdropPath: nil,
+            posterPath: nil,
+            genres: [],
+            country: [],
+            overview: nil,
+            releaseDate: "",
+            runtime: 0
+        )
+    }
 }

@@ -60,6 +60,7 @@ final class DefaultMovieContentDataSource: MovieContentDataSource {
         case .success(let response):
             return try response.map(type)
         case .failure(let error):
+            print(error.localizedDescription)
             throw error
         }
     }

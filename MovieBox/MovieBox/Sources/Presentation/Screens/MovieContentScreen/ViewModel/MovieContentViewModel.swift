@@ -33,26 +33,19 @@ final class MovieContentViewModel: ViewModel {
 
 extension MovieContentViewModel {
     private func fetchMovieContent(movieID: Int) async {
-        let result = await movieContentUseCase.fetchMovieContent(movieID: movieID)
+        let content = await movieContentUseCase.fetchMovieContent(movieID: movieID)
 
-        switch result {
-        case .success(let content):
-            let movieCard = (content.movieCard == nil) ? await MovieCard.makeMovieCard(movieInfo: content.info) : MovieCard.makeMovieCard(content.movieCard!)
-    
-            DispatchQueue.main.async { [weak self] in
-                
-                self?.output.showActivityIndicator = false
-                self?.output.movieInfo = MovieInfo.makeModel(content.info)
-                self?.output.movieCredit = content.credit
-                self?.output.movieImageGallery = content.imageGallery
-                self?.output.movieVideoGallery = content.videoGallery.videoList.map { MovieVideo.makeModel($0) }
-                self?.output.similarMovies = content.similarMovieGallery
-                self?.output.recommendMovies = content.recmdMovieGallery
-                self?.output.movieCard = movieCard
-            }
+        let movieCard = (content.movieCard == nil) ? await MovieCard.makeMovieCard(movieInfo: content.info) : MovieCard.makeMovieCard(content.movieCard!)
 
-        case .failure(let error):
-            print(#function, error.localizedDescription)
+        DispatchQueue.main.async { [weak self] in
+            self?.output.showActivityIndicator = false
+            self?.output.movieInfo = MovieInfo.makeModel(content.info)
+            self?.output.movieCredit = content.credit
+            self?.output.movieImageGallery = content.imageGallery
+            self?.output.movieVideoGallery = content.videoGallery.videoList.map { MovieVideo.makeModel($0) }
+            self?.output.similarMovies = content.similarMovieGallery
+            self?.output.recommendMovies = content.recmdMovieGallery
+            self?.output.movieCard = movieCard
         }
     }
 }
