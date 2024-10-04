@@ -36,7 +36,7 @@ final class DiskCache {
     
     init(_ capacity: Int) {
         self.capacity = capacity
-        self.cache = [String: ListNode](minimumCapacity: capacity)
+        self.cache = [String: ListNode](minimumCapacity: 1000)
         self.totalCacheSize = 0
         
         // Create dummy head and tail for the doubly linked list
@@ -72,8 +72,6 @@ final class DiskCache {
     }
     
     func saveState() {
-        let encoder = JSONEncoder()
-        
         var cacheArray: [String] = []
         var currentNode = tail?.prev
 
@@ -81,7 +79,7 @@ final class DiskCache {
             cacheArray.append(currentNode!.key)
             currentNode = currentNode?.prev
         }
-        print(cacheArray.map { $0 })
+//        print(cacheArray.map { $0 })
         
         UserDefaults.standard.setValue(cacheArray, forKey: "CacheState")
     }
@@ -94,7 +92,7 @@ final class DiskCache {
             return
         }
         
-        print(loadedCacheState.map { $0 })
+//        print(loadedCacheState.map { $0 })
         
         loadedCacheState.forEach { insert($0) }
         totalCacheSize = countCurrentDiskSize()
@@ -152,7 +150,7 @@ extension DiskCache {
                     try FileManager.default.removeItem(atPath: path)
                     cache.removeValue(forKey: key)
                     totalCacheSize -= size
-                    print(key, " 삭제")
+//                    print(key, " 삭제")
                     continuation.resume()
                 } catch {
                     print("Failed to delete file: \(error)")
@@ -163,8 +161,8 @@ extension DiskCache {
     }
     
     private func removeLeastRecentlyUsedFile() async {
-        print("LRU 시작...")
-        print("")
+//        print("LRU 시작...")
+//        print("")
 
         if let tailNode = removeTail() {
             let filePath = cacheDirectory.appending(component: tailNode.key, directoryHint: .notDirectory).path

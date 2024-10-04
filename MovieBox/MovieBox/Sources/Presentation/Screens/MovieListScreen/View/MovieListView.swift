@@ -64,9 +64,9 @@ struct MovieListView: View {
                                                         let width = (geometry.size.width - 60) / 3
                                                         
                                                         NavigationLink {
-                                                            MovieContentView(movieID: movie.id)
+                                                            MovieContentView(viewModel: MovieContentViewModel(movieID: movie.id))
                                                         } label: {
-                                                            LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
+                                                            AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
                                                                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
                                                                 .onAppear {
                                                                     
@@ -99,7 +99,7 @@ struct MovieListView: View {
                                         ForEach(viewModel.output.weeklyTrendMovieList, id: \.id) { item in
                                             ZStack(alignment: .leading) {
                                                 weeklyTrendMovieItemView(item, geometry.size.width)
-                                                NavigationLink { MovieContentView(movieID: item.id)
+                                                NavigationLink { MovieContentView(viewModel: MovieContentViewModel(movieID: item.id))
                                                 } label: {
                                                     EmptyView()
                                                 }
@@ -141,7 +141,7 @@ struct MovieListView: View {
         
         return HStack(spacing: 20) {
             
-            LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
+            AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
             
             VStack(alignment: .leading, spacing: 5) {

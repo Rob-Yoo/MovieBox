@@ -23,10 +23,13 @@ final class ImageCacheManager {
         mCache.configureCachePolicy(with: 10 * 1024 * 1024)
         return mCache
     }()
-    private let diskCache = DiskCache(200 * 1024)
+    private let diskCache = DiskCache(100 * 1024 * 1024)
     private init() {}
     
     func getImage(_ url: String) async -> Data? {
+        
+        guard !url.isEmpty else { return nil }
+        
         if let image = memoryCache.read(with: url) {
             print("메모리 캐시 히트")
             return image.imageData

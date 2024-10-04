@@ -18,8 +18,7 @@ struct ScrollOffsetPreferenceKey: PreferenceKey {
 
 struct MovieContentView: View {
     
-    private var movieID: Int
-    @StateObject private var viewModel = MovieContentViewModel()
+    @StateObject private var viewModel: MovieContentViewModel
     private var output: MovieContentViewModel.Output {
         return viewModel.output
     }
@@ -28,8 +27,8 @@ struct MovieContentView: View {
     @State private var isAtTop = true
     @Environment(\.dismiss) private var dismiss
     
-    init(movieID: Int) {
-        self.movieID = movieID
+    init(viewModel: MovieContentViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
@@ -132,7 +131,7 @@ struct MovieContentView: View {
                                                 
                                                 VStack(spacing: 10) {
                                                     
-                                                    LazyImageWrapperView(urlString: cast.profilePath, size: CGSize(width: width, height: width * 1.32))
+                                                    AsyncCachableImageView(urlString: cast.profilePath, size: CGSize(width: width, height: width * 1.32))
                                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                                     
                                                     Text("\(cast.name)")
@@ -178,7 +177,7 @@ struct MovieContentView: View {
                                                 
                                                 let width = screenWidth * 0.5
                                                 
-                                                LazyImageWrapperView(urlString: movieImage, size: CGSize(width: width, height: width * 0.7))
+                                                AsyncCachableImageView(urlString: movieImage, size: CGSize(width: width, height: width * 0.7))
                                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                             }
                                             
@@ -284,9 +283,9 @@ struct MovieContentView: View {
                                                 let width = screenWidth * 0.22
                                                 
                                                 NavigationLink {
-                                                    MovieContentView(movieID: movie.id)
+                                                    MovieContentView(viewModel: MovieContentViewModel(movieID: movie.id))
                                                 } label: {
-                                                    LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.32))
+                                                    AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.32))
                                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 }
                                                 
@@ -326,9 +325,9 @@ struct MovieContentView: View {
                                                 let width = screenWidth * 0.22
                                                 
                                                 NavigationLink {
-                                                    MovieContentView(movieID: movie.id)
+                                                    MovieContentView(viewModel: MovieContentViewModel(movieID: movie.id))
                                                 } label: {
-                                                    LazyImageWrapperView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.32))
+                                                    AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.32))
                                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 }
                                                 
@@ -407,9 +406,6 @@ struct MovieContentView: View {
                 .navigationBarTitleDisplayMode(.inline)
 
             }
-            .task {
-                viewModel.input.loadMovieContent.send(movieID)
-            }
         }
     }
 }
@@ -434,7 +430,10 @@ struct MovieContentHeaderView: View {
     
     var body: some View {
         ZStack {
-            LazyImageWrapperView(urlString: output.movieInfo.backdropPath, size: CGSize(width: screenWidth, height: screenHeight * 0.45))
+            AsyncCachableImageView(
+                urlString: output.movieInfo.backdropPath,
+                size: CGSize(width: screenWidth, height: screenHeight * 0.45)
+            )
             
             Rectangle()
                 .fill(
@@ -452,7 +451,10 @@ struct MovieContentHeaderView: View {
                     
                     let width = screenWidth * 0.22
                     
-                    LazyImageWrapperView(urlString: output.movieInfo.posterPath, size: CGSize(width: width, height: width * 1.32))
+                    AsyncCachableImageView(
+                        urlString: output.movieInfo.posterPath,
+                        size: CGSize(width: width, height: width * 1.32)
+                    )
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.leading, 15)
 
@@ -479,5 +481,5 @@ struct MovieContentHeaderView: View {
 }
 
 #Preview {
-    MovieContentView(movieID: 673)
+    MovieContentView(viewModel: MovieContentViewModel(movieID: 673))
 }

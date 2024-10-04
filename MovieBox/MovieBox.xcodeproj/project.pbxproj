@@ -18,7 +18,6 @@
 		CC73199A2C9C0611009158EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319992C9C0611009158EC /* RealmSwift */; };
 		CC73199D2C9C07FB009158EC /* ShuffleIt in Frameworks */ = {isa = PBXBuildFile; productRef = CC73199C2C9C07FB009158EC /* ShuffleIt */; };
 		CC7319A02C9C0843009158EC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = CC73199F2C9C0843009158EC /* Moya */; };
-		CC7319A32C9C08CB009158EC /* NukeUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A22C9C08CB009158EC /* NukeUI */; };
 		CC7319A62C9C09C7009158EC /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A52C9C09C7009158EC /* SkeletonUI */; };
 		CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319A82C9C09DA009158EC /* YouTubePlayerKit */; };
 		CC7319B02C9C0B94009158EC /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CC7319AF2C9C0B94009158EC /* Swinject */; };
@@ -53,6 +52,7 @@
 		CC83D4462CAEF92B0009C381 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4452CAEF92B0009C381 /* DiskCache.swift */; };
 		CC83D4482CAF06070009C381 /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4472CAF06070009C381 /* MemoryCache.swift */; };
 		CC83D44A2CAF08580009C381 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4492CAF08580009C381 /* ImageCacheManager.swift */; };
+		CC83D44C2CAFB8660009C381 /* AsyncCachableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D44B2CAFB8660009C381 /* AsyncCachableImageView.swift */; };
 		CC92217E2CA5894300C74F95 /* MovieBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92217D2CA5894300C74F95 /* MovieBoxDataSource.swift */; };
 		CC9221822CA58A7E00C74F95 /* MovieCardDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221812CA58A7E00C74F95 /* MovieCardDTO.swift */; };
 		CC9221862CA5B24E00C74F95 /* MovieBoxRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221852CA5B24E00C74F95 /* MovieBoxRepository.swift */; };
@@ -62,7 +62,6 @@
 		CC9221902CA67E8000C74F95 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = CC92218F2CA67E8000C74F95 /* Cosmos */; };
 		CC9221922CA69BEA00C74F95 /* MakeMovieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221912CA69BEA00C74F95 /* MakeMovieCardViewModel.swift */; };
 		CC9221942CA69CBF00C74F95 /* MovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221932CA69CBF00C74F95 /* MovieCard.swift */; };
-		CC9221962CA6E7E500C74F95 /* ImageLoadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221952CA6E7E500C74F95 /* ImageLoadManager.swift */; };
 		CC9221992CA7BC4D00C74F95 /* MovieCardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221982CA7BC4D00C74F95 /* MovieCardFrontView.swift */; };
 		CC92219D2CA8132200C74F95 /* MovieBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92219C2CA8132200C74F95 /* MovieBoxView.swift */; };
 		CC9221A02CA8133100C74F95 /* MovieBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92219F2CA8133100C74F95 /* MovieBoxViewModel.swift */; };
@@ -70,7 +69,6 @@
 		CCBA34752CA3D5EE0058507C /* ImagePlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34742CA3D5ED0058507C /* ImagePlaceholderView.swift */; };
 		CCBA34772CA3D8E90058507C /* MovieContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34762CA3D8E90058507C /* MovieContentViewModel.swift */; };
 		CCBA34792CA3DA120058507C /* MovieContentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34782CA3DA120058507C /* MovieContentUseCase.swift */; };
-		CCBA347B2CA40E4E0058507C /* LazyImageWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA347A2CA40E4E0058507C /* LazyImageWrapperView.swift */; };
 		CCBA347E2CA4130D0058507C /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA347D2CA4130D0058507C /* MovieInfo.swift */; };
 		CCBA34802CA431C60058507C /* Country.json in Resources */ = {isa = PBXBuildFile; fileRef = CCBA347F2CA431C60058507C /* Country.json */; };
 		CCBA34822CA473F00058507C /* MovieVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34812CA473F00058507C /* MovieVideo.swift */; };
@@ -139,6 +137,7 @@
 		CC83D4452CAEF92B0009C381 /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
 		CC83D4472CAF06070009C381 /* MemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
 		CC83D4492CAF08580009C381 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		CC83D44B2CAFB8660009C381 /* AsyncCachableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCachableImageView.swift; sourceTree = "<group>"; };
 		CC92217D2CA5894300C74F95 /* MovieBoxDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxDataSource.swift; sourceTree = "<group>"; };
 		CC9221812CA58A7E00C74F95 /* MovieCardDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardDTO.swift; sourceTree = "<group>"; };
 		CC9221852CA5B24E00C74F95 /* MovieBoxRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxRepository.swift; sourceTree = "<group>"; };
@@ -147,7 +146,6 @@
 		CC92218C2CA67E5800C74F95 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		CC9221912CA69BEA00C74F95 /* MakeMovieCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovieCardViewModel.swift; sourceTree = "<group>"; };
 		CC9221932CA69CBF00C74F95 /* MovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCard.swift; sourceTree = "<group>"; };
-		CC9221952CA6E7E500C74F95 /* ImageLoadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadManager.swift; sourceTree = "<group>"; };
 		CC9221982CA7BC4D00C74F95 /* MovieCardFrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardFrontView.swift; sourceTree = "<group>"; };
 		CC92219C2CA8132200C74F95 /* MovieBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxView.swift; sourceTree = "<group>"; };
 		CC92219F2CA8133100C74F95 /* MovieBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxViewModel.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 		CCBA34742CA3D5ED0058507C /* ImagePlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceholderView.swift; sourceTree = "<group>"; };
 		CCBA34762CA3D8E90058507C /* MovieContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentViewModel.swift; sourceTree = "<group>"; };
 		CCBA34782CA3DA120058507C /* MovieContentUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieContentUseCase.swift; sourceTree = "<group>"; };
-		CCBA347A2CA40E4E0058507C /* LazyImageWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyImageWrapperView.swift; sourceTree = "<group>"; };
 		CCBA347D2CA4130D0058507C /* MovieInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		CCBA347F2CA431C60058507C /* Country.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Country.json; sourceTree = "<group>"; };
 		CCBA34812CA473F00058507C /* MovieVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVideo.swift; sourceTree = "<group>"; };
@@ -182,7 +179,6 @@
 				CC7319A92C9C09DA009158EC /* YouTubePlayerKit in Frameworks */,
 				CC73199D2C9C07FB009158EC /* ShuffleIt in Frameworks */,
 				CC7319A02C9C0843009158EC /* Moya in Frameworks */,
-				CC7319A32C9C08CB009158EC /* NukeUI in Frameworks */,
 				CC529C792CA945FB001E5FEF /* SwiftUIVisualEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				CC7319ED2C9E9774009158EC /* DateFormatManager.swift */,
-				CC9221952CA6E7E500C74F95 /* ImageLoadManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -591,7 +586,7 @@
 			isa = PBXGroup;
 			children = (
 				CCBA34742CA3D5ED0058507C /* ImagePlaceholderView.swift */,
-				CCBA347A2CA40E4E0058507C /* LazyImageWrapperView.swift */,
+				CC83D44B2CAFB8660009C381 /* AsyncCachableImageView.swift */,
 			);
 			path = ImageViews;
 			sourceTree = "<group>";
@@ -669,7 +664,6 @@
 				CC7319992C9C0611009158EC /* RealmSwift */,
 				CC73199C2C9C07FB009158EC /* ShuffleIt */,
 				CC73199F2C9C0843009158EC /* Moya */,
-				CC7319A22C9C08CB009158EC /* NukeUI */,
 				CC7319A52C9C09C7009158EC /* SkeletonUI */,
 				CC7319A82C9C09DA009158EC /* YouTubePlayerKit */,
 				CC7319AF2C9C0B94009158EC /* Swinject */,
@@ -709,7 +703,6 @@
 				CC7319982C9C0611009158EC /* XCRemoteSwiftPackageReference "realm-swift" */,
 				CC73199B2C9C07FB009158EC /* XCRemoteSwiftPackageReference "ShuffleIt" */,
 				CC73199E2C9C0843009158EC /* XCRemoteSwiftPackageReference "Moya" */,
-				CC7319A12C9C08CB009158EC /* XCRemoteSwiftPackageReference "Nuke" */,
 				CC7319A42C9C09C7009158EC /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				CC7319A72C9C09DA009158EC /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 				CC7319AE2C9C0B94009158EC /* XCRemoteSwiftPackageReference "Swinject" */,
@@ -756,7 +749,6 @@
 				CCBA34772CA3D8E90058507C /* MovieContentViewModel.swift in Sources */,
 				CCBA34822CA473F00058507C /* MovieVideo.swift in Sources */,
 				CC7319DC2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift in Sources */,
-				CC9221962CA6E7E500C74F95 /* ImageLoadManager.swift in Sources */,
 				CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */,
 				CCF3158D2CA12CCA0082D794 /* ExpandableSearchBar.swift in Sources */,
 				CCBA34792CA3DA120058507C /* MovieContentUseCase.swift in Sources */,
@@ -775,6 +767,7 @@
 				CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */,
 				CC9221862CA5B24E00C74F95 /* MovieBoxRepository.swift in Sources */,
 				CC529C822CA9BAEB001E5FEF /* SettingView.swift in Sources */,
+				CC83D44C2CAFB8660009C381 /* AsyncCachableImageView.swift in Sources */,
 				CC83D4482CAF06070009C381 /* MemoryCache.swift in Sources */,
 				CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */,
 				CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */,
@@ -790,7 +783,6 @@
 				CC9221942CA69CBF00C74F95 /* MovieCard.swift in Sources */,
 				CCBA34712CA2DC160058507C /* MovieContentView.swift in Sources */,
 				CC529C7F2CA9B267001E5FEF /* ActitivyIndicatorView.swift in Sources */,
-				CCBA347B2CA40E4E0058507C /* LazyImageWrapperView.swift in Sources */,
 				CC7319D82C9D9FF3009158EC /* MovieSearchResult.swift in Sources */,
 				CC7319892C9C0468009158EC /* MovieBoxApp.swift in Sources */,
 				CCF315842CA07C630082D794 /* DIContainer.swift in Sources */,
@@ -1065,14 +1057,6 @@
 				minimumVersion = 15.0.3;
 			};
 		};
-		CC7319A12C9C08CB009158EC /* XCRemoteSwiftPackageReference "Nuke" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kean/Nuke.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.8.0;
-			};
-		};
 		CC7319A42C9C09C7009158EC /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
@@ -1127,11 +1111,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CC73199E2C9C0843009158EC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
-		};
-		CC7319A22C9C08CB009158EC /* NukeUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CC7319A12C9C08CB009158EC /* XCRemoteSwiftPackageReference "Nuke" */;
-			productName = NukeUI;
 		};
 		CC7319A52C9C09C7009158EC /* SkeletonUI */ = {
 			isa = XCSwiftPackageProductDependency;

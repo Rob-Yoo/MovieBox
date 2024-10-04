@@ -10,24 +10,20 @@ import Combine
 
 final class MovieContentViewModel: ViewModel {
 
+    private let movieID: Int
     var input = Input()
     @Published var output = Output()
     private var cancellables = Set<AnyCancellable>()
     
     @Injected private var movieContentUseCase: MovieContentUseCase
     
-    init() {
+    init(movieID: Int) {
+        self.movieID = movieID
         transform()
     }
     
     func transform() {
-        input.loadMovieContent
-            .sink { [weak self] movieID in
-                guard let self else { return }
-
-                Task { await self.fetchMovieContent(movieID: movieID) }
-            }
-            .store(in: &cancellables)
+        Task { await fetchMovieContent(movieID: movieID) }
     }
 }
 
@@ -52,9 +48,7 @@ extension MovieContentViewModel {
 
 extension MovieContentViewModel {
     
-    struct Input {
-        let loadMovieContent = PassthroughSubject<Int, Never>()
-    }
+    struct Input {}
     
     struct Output {
         var movieInfo = MovieInfo()

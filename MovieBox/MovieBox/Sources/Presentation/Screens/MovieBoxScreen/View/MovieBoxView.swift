@@ -115,43 +115,6 @@ struct MovieBoxView: View {
                     }
                 }
             }
-            .task {
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/criPrxkTggCra1jch49jsiSeXo1.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/2JO8X8aT97BwxMMGr9ChrCl4xGQ.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/cCIKixVHGIynoZR2xMg9uygey5f.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/2JO8X8aT97BwxMMGr9ChrCl4xGQ.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/criPrxkTggCra1jch49jsiSeXo1.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/obKmfNexgL4ZP5cAmzdL4KbHHYX.jpg") {
-        //            print(data.count)
-                }
-                
-                if let data = await ImageCacheManager.shared.getImage("https://image.tmdb.org/t/p/w780/cCIKixVHGIynoZR2xMg9uygey5f.jpg") {
-        //            print(data.count)
-                }
-            }
             .onAppear {
                 viewModel.input.loadMovieCardList.send(())
             }
