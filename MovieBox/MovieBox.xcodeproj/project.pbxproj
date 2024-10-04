@@ -50,6 +50,9 @@
 		CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */; };
 		CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */; };
 		CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC731A012CA037AF009158EC /* MovieListUseCase.swift */; };
+		CC83D4462CAEF92B0009C381 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4452CAEF92B0009C381 /* DiskCache.swift */; };
+		CC83D4482CAF06070009C381 /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4472CAF06070009C381 /* MemoryCache.swift */; };
+		CC83D44A2CAF08580009C381 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4492CAF08580009C381 /* ImageCacheManager.swift */; };
 		CC92217E2CA5894300C74F95 /* MovieBoxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC92217D2CA5894300C74F95 /* MovieBoxDataSource.swift */; };
 		CC9221822CA58A7E00C74F95 /* MovieCardDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221812CA58A7E00C74F95 /* MovieCardDTO.swift */; };
 		CC9221862CA5B24E00C74F95 /* MovieBoxRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9221852CA5B24E00C74F95 /* MovieBoxRepository.swift */; };
@@ -133,6 +136,9 @@
 		CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieListRepository.swift; sourceTree = "<group>"; };
 		CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 		CC731A012CA037AF009158EC /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
+		CC83D4452CAEF92B0009C381 /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
+		CC83D4472CAF06070009C381 /* MemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
+		CC83D4492CAF08580009C381 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		CC92217D2CA5894300C74F95 /* MovieBoxDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxDataSource.swift; sourceTree = "<group>"; };
 		CC9221812CA58A7E00C74F95 /* MovieCardDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardDTO.swift; sourceTree = "<group>"; };
 		CC9221852CA5B24E00C74F95 /* MovieBoxRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBoxRepository.swift; sourceTree = "<group>"; };
@@ -375,6 +381,7 @@
 		CC7319EB2C9E9757009158EC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CC83D4442CAEF9160009C381 /* ImageCache */,
 				CCF315822CA07C590082D794 /* DI */,
 				CC7319EC2C9E9766009158EC /* Managers */,
 			);
@@ -456,6 +463,16 @@
 				CCF315712CA045080082D794 /* CustomTabView.swift */,
 			);
 			path = TabView;
+			sourceTree = "<group>";
+		};
+		CC83D4442CAEF9160009C381 /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				CC83D4452CAEF92B0009C381 /* DiskCache.swift */,
+				CC83D4472CAF06070009C381 /* MemoryCache.swift */,
+				CC83D4492CAF08580009C381 /* ImageCacheManager.swift */,
+			);
+			path = ImageCache;
 			sourceTree = "<group>";
 		};
 		CC92217F2CA58A3100C74F95 /* External */ = {
@@ -751,11 +768,14 @@
 				CCF315812CA06EF10082D794 /* ViewModel.swift in Sources */,
 				CC92218D2CA67E5800C74F95 /* StarView.swift in Sources */,
 				CC9221922CA69BEA00C74F95 /* MakeMovieCardViewModel.swift in Sources */,
+				CC83D44A2CAF08580009C381 /* ImageCacheManager.swift in Sources */,
+				CC83D4462CAEF92B0009C381 /* DiskCache.swift in Sources */,
 				CC7319F12C9E9A7E009158EC /* MovieListRepository.swift in Sources */,
 				CC7319CC2C9D63E2009158EC /* MovieDetailDTO+Mapping.swift in Sources */,
 				CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */,
 				CC9221862CA5B24E00C74F95 /* MovieBoxRepository.swift in Sources */,
 				CC529C822CA9BAEB001E5FEF /* SettingView.swift in Sources */,
+				CC83D4482CAF06070009C381 /* MemoryCache.swift in Sources */,
 				CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */,
 				CC7319DE2C9DA5A8009158EC /* WeeklyTrendMovieDTO+Mapping.swift in Sources */,
 				CCF3157E2CA060E80082D794 /* MovieListView.swift in Sources */,

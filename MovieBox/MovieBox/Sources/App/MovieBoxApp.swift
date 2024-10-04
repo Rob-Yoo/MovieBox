@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
-
+import UIKit
 @main
 struct MovieBoxApp: App {
-    
+    @Environment(\.scenePhase) var scenePhase
+
     init() {
         let tabAp = UITabBarAppearance()
         
@@ -26,11 +27,22 @@ struct MovieBoxApp: App {
         navAp2.configureWithOpaqueBackground()
         navAp2.backgroundColor = .background
         UINavigationBar.appearance().standardAppearance = navAp2
+        
+        ImageCacheManager.shared.loadDiskCacheState()
     }
     
     var body: some Scene {
         WindowGroup {
             CustomTabView()
         }
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+            case .background:
+                ImageCacheManager.shared.saveDiskCacheState()
+            default:
+                break
+            }
+        }
     }
 }
+
