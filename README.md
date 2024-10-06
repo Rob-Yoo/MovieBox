@@ -13,7 +13,6 @@
   - Reactive: `Combine`
   - Network: `Moya`
   - 로컬 저장소: `Realm`
-  - 이미지 처리: `Nuke` `NukeUI`
   - DI Container: `Swinject`
 - **프로젝트 주요 기능**
 
@@ -109,3 +108,26 @@
   - MovieContentViewModel에서 UseCase를 주입받는 코드를 @Injected 프로퍼티 래퍼를 통해 추상화
   - 대부분의 구현체들은 단일로 유지되게 설정하였지만, 영화 검색 결과 화면에 사용되는 DataSource 구현체의 경우 Pagination 관련 상태값을 가지고 있기 때문에 매번 새로운 인스턴스를 생성되게 설정
 
+
+### 이미지 캐시 전략 및 구현
+
+<br>
+<b> 이미지 캐시 전략 </b>
+<br>
+<br>
+<img src="https://github.com/user-attachments/assets/6dab8c2b-ac22-4e0f-bc4f-c9637c889961" width="800">
+
+<br>
+<br>
+
+- <b>영화 검색 결과</b>에 대한 이미지는 사용자가 빠르게 소비하는 <b>단기적인 데이터</b>이므로 NSCache를 이용한 <b>메모리 캐시</b>만 적용
+- <b>주간 인기 영화</b>에 대한 이미지는 주 단위로 바뀌는 <b>장기적인 데이터</b>이므로 FileManager를 이용한 <b>Etag 기반 디스크 캐시</b>만 적용
+- <b>영화 상세 정보</b>에 대한 이미지는 사용자기 <b>볼 영화를 고르기 위해 해당 화면에 접근 후 앱을 종료한 뒤 영화 관람 후 다시 앱을 실행하여 영화 카드를 제작하는 시나리오</b>를 고려하여 <b>메모리 캐시와 Etag 기반 디스크 캐시</b>를 혼합하여 적용
+
+<br>
+<br>
+
+<b> LRU와 LFU 알고리즘을 혼합한 디스크 캐시 구현 </b>
+
+<br>
+<br>
