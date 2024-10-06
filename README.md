@@ -4,6 +4,15 @@
   <img width="130" alt="appstore" src="https://user-images.githubusercontent.com/55099365/196023806-5eb7be0f-c7cf-4661-bb39-35a15146c33a.png">
 </a>
 
+<br>
+<br>
+
+| 무비박스 화면 | 영화 검색 화면 | 영화 상세 정보 화면 | 영화 카드 제작 화면 |
+|--|--|--|--|
+|![Simulator Screen Recording - iPhone 15 Pro - 2024-10-01 at 01 09 00](https://github.com/user-attachments/assets/0d30240c-14ed-4f58-b8fc-128596e917e4)|![Simulator Screen Recording - iPhone 15 Pro - 2024-10-07 at 03 57 40](https://github.com/user-attachments/assets/4b8cd764-fbc6-4bdd-9d38-6ba52323463f)|![Simulator Screen Recording - iPhone 15 Pro - 2024-10-07 at 03 59 38](https://github.com/user-attachments/assets/859f5c49-ff97-4021-9856-6fca9b951879)|![Simulator Screen Recording - iPhone 15 Pro - 2024-10-07 at 04 26 20](https://github.com/user-attachments/assets/b445d162-801c-4e8c-ad13-5853fa9939f5)|
+
+<br>
+
 ## 🗄️ 프로젝트 정보
 - **기간** : `2024.09.19 ~ 2024.09.30` (약 1주)
 - **개발 인원** : `iOS 1명`
@@ -108,6 +117,7 @@
   - MovieContentViewModel에서 UseCase를 주입받는 코드를 @Injected 프로퍼티 래퍼를 통해 추상화
   - 대부분의 구현체들은 단일로 유지되게 설정하였지만, 영화 검색 결과 화면에 사용되는 DataSource 구현체의 경우 Pagination 관련 상태값을 가지고 있기 때문에 매번 새로운 인스턴스를 생성되게 설정
 
+<br>
 
 ### 이미지 캐시 전략 및 구현
 
@@ -141,5 +151,22 @@
 <br>
 <br>
 
-- LRU 알고리즘을 구현 시 접근 시간에 대한 max 연산의 O(N) 시간복잡도를 이중 연결 리스트를 사용하여 O(1)로 개선
-- 메인 스레드에서의 I/O Bound 문제를 해결하고 I/O 작업 중 발생할 수 있는 Data Race를 방지하기 위해, Custom Serial Queue를 활용한 Non-Blocking I/O 적용
+- LRU 알고리즘을 구현 시 접근 시간에 대한 max 연산의 O(N) 시간복잡도를 <b>이중 연결 리스트를 사용하여 O(1)로 개선</b>
+- 메인 스레드에서의 I/O Bound 문제를 해결하고 I/O 작업 중 발생할 수 있는 Data Race를 방지하기 위해, <b>Custom Serial Queue를 활용한 Non-Blocking I/O</b> 적용
+
+<br>
+<br>
+
+### 이미지 리사이징을 활용한 메모리 최적화
+
+<br>
+
+<div align="center">
+<img width="400" height="300" alt="스크린샷 2024-10-05 오후 4 11 15" src="https://github.com/user-attachments/assets/c5c31880-c650-487a-98fd-631aabebb4c3">
+<img width="400" height="300" alt="스크린샷 2024-10-05 오후 4 12 19" src="https://github.com/user-attachments/assets/b591efa4-4d7a-484a-a0d4-408ce41c5a49">
+</div>
+
+<br>
+
+- 원본 이미지를 단순히 resizable().frame(width:height:)으로 크기를 조절할 시 원본 이미지를 그대로 렌더링하므로 불필요하게 메모리가 많이 사용됨
+- UIGraphicsImageRenderer를 사용해서 이미지 뷰가 필요로 하는 크기에 맞추어 리사이징하여 필요한 만큼만 픽셀 정보를 메모리에 로드시켜 메모리를 절약
