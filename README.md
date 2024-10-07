@@ -162,8 +162,8 @@
 <br>
 
 <div align="center">
-<img width="400" height="300" alt="스크린샷 2024-10-05 오후 4 11 15" src="https://github.com/user-attachments/assets/c5c31880-c650-487a-98fd-631aabebb4c3">
-<img width="400" height="300" alt="스크린샷 2024-10-05 오후 4 12 19" src="https://github.com/user-attachments/assets/b591efa4-4d7a-484a-a0d4-408ce41c5a49">
+<img width="300" height="200" alt="스크린샷 2024-10-05 오후 4 11 15" src="https://github.com/user-attachments/assets/c5c31880-c650-487a-98fd-631aabebb4c3">
+<img width="300" height="200" alt="스크린샷 2024-10-05 오후 4 12 19" src="https://github.com/user-attachments/assets/b591efa4-4d7a-484a-a0d4-408ce41c5a49">
 </div>
 
 <br>
