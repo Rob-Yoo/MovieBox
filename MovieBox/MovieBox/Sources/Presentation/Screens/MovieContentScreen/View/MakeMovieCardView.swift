@@ -15,6 +15,7 @@ struct MakeMovieCardView: View {
     @State private var isFlipped = false
     
     init(movieCard: MovieCard) {
+//        print("Hi")
         _viewModel = StateObject(wrappedValue: MakeMovieCardViewModel(movieCard: movieCard))
     }
     

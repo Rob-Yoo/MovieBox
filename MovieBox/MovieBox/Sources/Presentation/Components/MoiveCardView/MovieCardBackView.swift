@@ -24,11 +24,6 @@ struct MovieCardBackView: View {
     
     var body: some View {
         MoviePosterView(width: width, height: height)
-            .rotation3DEffect(
-                .degrees(-180),
-                axis: (x: 0, y: 1, z: 0),
-                perspective: 0.5
-            )
             .blurEffect()
             .blurEffectStyle(.systemUltraThinMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 20))

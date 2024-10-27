@@ -46,6 +46,7 @@ final class MovieListViewModel: ViewModel {
             .sink { [weak self] _ in
                 guard let self else { return }
                 
+                output.isSearching = true
                 Task {
                     await self.fetchSearchResult(query: self.input.searchTextField, isPaging: false)
                 }
@@ -104,7 +105,8 @@ final class MovieListViewModel: ViewModel {
                 } else {
                     self?.output.searchResults = data.results
                     if !(data.results.isEmpty) {
-                        self?.output.scrollToTop = true                        
+                        self?.output.isSearching = false
+                        self?.output.scrollToTop = true
                     }
                 }
 
@@ -132,6 +134,7 @@ extension MovieListViewModel {
         var showSearchView = false
         var number = 1
         var weeklyTrendMovieList = [WeeklyTrendMovieGallery.WeeklyTrendMovie]()
+        var isSearching = true
         var showActivityIndicator = true
         var scrollToTop = false
     }

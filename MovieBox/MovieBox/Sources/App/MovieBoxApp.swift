@@ -7,9 +7,10 @@
 
 import SwiftUI
 import UIKit
+import RealmSwift
+
 @main
 struct MovieBoxApp: App {
-    @Environment(\.scenePhase) var scenePhase
 
     init() {
         let tabAp = UITabBarAppearance()
@@ -29,19 +30,21 @@ struct MovieBoxApp: App {
         UINavigationBar.appearance().standardAppearance = navAp2
         
         ImageCacheManager.shared.loadDiskCacheState()
+        
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 2 {
+                }
+            }
+        )
+        
+        Realm.Configuration.defaultConfiguration = config
     }
     
     var body: some Scene {
         WindowGroup {
             CustomTabView()
-        }
-        .onChange(of: scenePhase) { phase in
-            switch phase {
-            case .background:
-                ImageCacheManager.shared.saveDiskCacheState()
-            default:
-                break
-            }
         }
     }
 }

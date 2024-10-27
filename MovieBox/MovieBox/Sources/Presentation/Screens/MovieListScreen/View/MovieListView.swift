@@ -7,7 +7,6 @@
 
 import SwiftUI
 import Combine
-import NukeUI
 
 struct MovieListView: View {
     
@@ -45,44 +44,53 @@ struct MovieListView: View {
                                         .padding(.bottom, 50)
                                     }
                                     else {
-                                        ScrollView {
-                                            HStack {
-                                                Text("검색 결과")
-                                                    .font(.title)
-                                                    .fontWeight(.bold)
-                                                    .foregroundStyle(.white)
-                                                    .padding(.leading)
-                                                    .id(0)
-                                                Spacer()
-                                            }
-                                            LazyVGrid(columns: [
-                                                GridItem(.flexible()),
-                                                GridItem(.flexible()),
-                                                GridItem(.flexible())], spacing: 10) {
-                                                    ForEach(viewModel.output.searchResults.indices, id: \.self) { index in
-                                                        let movie = viewModel.output.searchResults[index]
-                                                        let width = (geometry.size.width - 60) / 3
-                                                        
-                                                        NavigationLink {
-                                                            MovieContentView(viewModel: MovieContentViewModel(movieID: movie.id))
-                                                        } label: {
-                                                            AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
-                                                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                                                                .onAppear {
-                                                                    
-                                                                    if (index == viewModel.output.searchResults.count - 5) {
-                                                                        viewModel.input.paginationTrigger.send(())
-                                                                    }
-                                                                }
-                                                        }
-                                                        
-                                                    }
+                                        if !(viewModel.output.isSearching) {
+                                
+                                            ScrollView {
+                                                HStack {
+                                                    Text("검색 결과")
+                                                        .font(.title)
+                                                        .fontWeight(.bold)
+                                                        .foregroundStyle(.white)
+                                                        .padding(.leading)
+                                                        .id(0)
+                                                    Spacer()
                                                 }
-                                                .frame(maxWidth: .infinity)
-                                                .padding(.horizontal)
-                                                .padding(.bottom)
+                                                LazyVGrid(columns: [
+                                                    GridItem(.flexible()),
+                                                    GridItem(.flexible()),
+                                                    GridItem(.flexible())], spacing: 10) {
+                                                        ForEach(viewModel.output.searchResults.indices, id: \.self) { index in
+                                                            let movie = viewModel.output.searchResults[index]
+                                                            let width = (geometry.size.width - 60) / 3
+                                                            
+                                                            NavigationLink {
+                                                                MovieContentView(movieID: movie.id)
+                                                            } label: {
+                                                                AsyncCachableImageView(
+                                                                    urlString: movie.posterPath,
+                                                                    size: CGSize(width: width, height: width * 1.3),
+                                                                    cacheType: .memoryCache
+                                                                )
+                                                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                                                    .onAppear {
+                                                                        
+                                                                        if (index == viewModel.output.searchResults.count - 5) {
+                                                                            viewModel.input.paginationTrigger.send(())
+                                                                        }
+                                                                    }
+                                                            }
+                                                            
+                                                        }
+                                                    }
+                                                    .frame(maxWidth: .infinity)
+                                                    .padding(.horizontal)
+                                                    .padding(.bottom)
+                                            }
+                                            .scrollIndicators(.never)
+                                            
                                         }
-                                        .scrollIndicators(.never)
+                                        
                                     }
                                     
                                 }
@@ -99,7 +107,7 @@ struct MovieListView: View {
                                         ForEach(viewModel.output.weeklyTrendMovieList, id: \.id) { item in
                                             ZStack(alignment: .leading) {
                                                 weeklyTrendMovieItemView(item, geometry.size.width)
-                                                NavigationLink { MovieContentView(viewModel: MovieContentViewModel(movieID: item.id))
+                                                NavigationLink { MovieContentView(movieID: item.id)
                                                 } label: {
                                                     EmptyView()
                                                 }
@@ -141,7 +149,11 @@ struct MovieListView: View {
         
         return HStack(spacing: 20) {
             
-            AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.3))
+            AsyncCachableImageView(
+                urlString: movie.posterPath,
+                size: CGSize(width: width, height: width * 1.3),
+                cacheType: .diskCache
+            )
                 .clipShape(RoundedRectangle(cornerRadius: 10.0))
             
             VStack(alignment: .leading, spacing: 5) {

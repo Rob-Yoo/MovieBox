@@ -34,7 +34,7 @@ extension WeeklyTrendMovieDTO {
 
 extension TrendMovieItemDTO {
     func toDomain() -> WeeklyTrendMovieGallery.WeeklyTrendMovie {
-        let posterPath = API.tmdbImageRequestBaseUrl + (self.posterPath ?? "")
+        let posterPath = self.posterPath ?? ""
         let releaseYear = DateFormatManager.shared.convertToYearString(format: "yyyy-MM-dd", target: self.releaseDate)
         
         return WeeklyTrendMovieGallery.WeeklyTrendMovie(

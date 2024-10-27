@@ -23,7 +23,7 @@ struct MovieBoxView: View {
         GeometryReader { geometry in
             
             let screenWidth = geometry.size.width
-            let screenHeight = geometry.size.height
+            let _ = geometry.size.height
             
             ZStack {
                 

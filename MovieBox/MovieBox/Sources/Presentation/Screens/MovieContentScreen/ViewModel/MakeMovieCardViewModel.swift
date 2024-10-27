@@ -15,7 +15,7 @@ final class MakeMovieCardViewModel: ViewModel {
     private var initialRate: Int
     private var initialComment: String
 
-    @Injected private var movieBoxRepository: MovieBoxRepository
+    @Injected private var movieContentUseCase: MovieContentUseCase
     
     init(movieCard: MovieCard) {
         self.input = Input(comment: movieCard.comment)
@@ -67,9 +67,9 @@ final class MakeMovieCardViewModel: ViewModel {
                 )
                 
                 if output.isEditing {
-                    movieBoxRepository.updateMovieCard(entity)
+                    movieContentUseCase.updateMovieCard(entity)
                 } else {
-                    movieBoxRepository.createMovieCard(entity)
+                    movieContentUseCase.saveMovieCard(entity)
                 }
             }
             .store(in: &cancellables)

@@ -31,7 +31,7 @@ extension CreditDTO {
 
 extension CastDTO {
     func toDomain() -> MovieContent.MovieCredit.Cast {
-        let profilePath = API.tmdbImageRequestBaseUrl + (self.profilePath ?? "")
+        let profilePath = self.profilePath ?? ""
         
         return MovieContent.MovieCredit.Cast(name: self.name, profilePath: profilePath)
     }

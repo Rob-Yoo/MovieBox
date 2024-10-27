@@ -35,8 +35,8 @@ extension MovieInfoDTO {
     func toDomain() -> MovieContent.MovieInfo {
         let genres = self.genres.map { $0.name }
         let country = self.country.map { CountryMapper.covertToName(code: $0) }
-        let posterPath = API.tmdbImageRequestBaseUrl + (self.posterPath ?? "")
-        let backdropPath = API.tmdbImageRequestBaseUrl + (self.backdropPath ?? "")
+        let posterPath = self.posterPath ?? ""
+        let backdropPath = self.backdropPath ?? ""
         let releaseYear = DateFormatManager.shared.convertToYearString(format: "yyyy-MM-dd", target: self.releaseDate)
         
         return MovieContent.MovieInfo(

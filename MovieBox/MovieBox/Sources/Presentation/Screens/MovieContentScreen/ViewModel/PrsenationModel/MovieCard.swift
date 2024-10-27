@@ -28,16 +28,8 @@ struct MovieCard {
     
     static func makeMovieCard(movieInfo: MovieContent.MovieInfo) async -> Self {
         
-        let result = await ImageLoadManager.shared.loadImageData(from: movieInfo.posterPath)
-        var posterData: Data?
-        
-        switch result {
-        case .success(let jpegData):
-            posterData = jpegData
-        case .failure(let error):
-            print(#function, error.localizedDescription)
-        }
-        
+        let posterData = await ImageCacheManager.shared.getImage(movieInfo.posterPath, .memoryCache)
+
         return MovieCard(
             movieID: movieInfo.id,
             poster: posterData,

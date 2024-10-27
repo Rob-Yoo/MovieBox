@@ -11,6 +11,7 @@ protocol MovieContentUseCase {
     func fetchMovieContent(movieID: Int) async -> MovieContent
     func saveMovieCard(_ movieCard: MovieContent.MovieCard)
     func updateMovieCard(_ movieCard: MovieContent.MovieCard)
+    func reloadMovieCard(_ movieID: Int) async -> MovieContent.MovieCard?
 }
 
 final class DefaultMovieContentUseCase: MovieContentUseCase {
@@ -40,6 +41,10 @@ final class DefaultMovieContentUseCase: MovieContentUseCase {
     
     func updateMovieCard(_ movieCard: MovieContent.MovieCard) {
         movieBoxRepository.updateMovieCard(movieCard)
+    }
+    
+    func reloadMovieCard(_ movieID: Int) async -> MovieContent.MovieCard? {
+        return await fetchMovieCard(movieID: movieID)
     }
     
     @MainActor

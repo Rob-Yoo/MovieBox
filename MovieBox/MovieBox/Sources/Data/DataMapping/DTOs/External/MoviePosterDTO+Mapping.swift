@@ -19,7 +19,7 @@ struct MoviePosterDTO: Decodable {
 
 extension MoviePosterDTO {
     func toDomain() -> MoviePoster {
-        let posterPath = API.tmdbImageRequestBaseUrl + (self.posterPath ?? "")
+        let posterPath = self.posterPath ?? ""
         
         return MoviePoster(
             id: self.id,

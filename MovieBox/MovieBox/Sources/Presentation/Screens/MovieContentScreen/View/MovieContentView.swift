@@ -27,8 +27,8 @@ struct MovieContentView: View {
     @State private var isAtTop = true
     @Environment(\.dismiss) private var dismiss
     
-    init(viewModel: MovieContentViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+    init(movieID: Int) {
+        _viewModel = StateObject(wrappedValue: MovieContentViewModel(movieID: movieID))
     }
     
     var body: some View {
@@ -38,7 +38,7 @@ struct MovieContentView: View {
             GeometryReader { geometry in
                 
                 let screenWidth = geometry.size.width
-                let screenHeight = geometry.size.height
+                let _ = geometry.size.height
                 
                 ZStack {
                     
@@ -177,7 +177,10 @@ struct MovieContentView: View {
                                                 
                                                 let width = screenWidth * 0.5
                                                 
-                                                AsyncCachableImageView(urlString: movieImage, size: CGSize(width: width, height: width * 0.7))
+                                                AsyncCachableImageView(
+                                                    urlString: movieImage,
+                                                    size: CGSize(width: width, height: width * 0.7)
+                                                )
                                                     .clipShape(RoundedRectangle(cornerRadius: 10))
                                             }
                                             
@@ -283,9 +286,12 @@ struct MovieContentView: View {
                                                 let width = screenWidth * 0.22
                                                 
                                                 NavigationLink {
-                                                    MovieContentView(viewModel: MovieContentViewModel(movieID: movie.id))
+                                                    MovieContentView(movieID: movie.id)
                                                 } label: {
-                                                    AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.32))
+                                                    AsyncCachableImageView(
+                                                        urlString: movie.posterPath,
+                                                        size: CGSize(width: width, height: width * 1.32)
+                                                    )
                                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 }
                                                 
@@ -299,7 +305,6 @@ struct MovieContentView: View {
                                 }
                                 .padding(.vertical)
                             }
-                            
                             
                             if !(output.recommendMovies.posterList.isEmpty) {
                                 VStack {
@@ -325,9 +330,12 @@ struct MovieContentView: View {
                                                 let width = screenWidth * 0.22
                                                 
                                                 NavigationLink {
-                                                    MovieContentView(viewModel: MovieContentViewModel(movieID: movie.id))
+                                                    MovieContentView(movieID: movie.id)
                                                 } label: {
-                                                    AsyncCachableImageView(urlString: movie.posterPath, size: CGSize(width: width, height: width * 1.32))
+                                                    AsyncCachableImageView(
+                                                        urlString: movie.posterPath,
+                                                        size: CGSize(width: width, height: width * 1.32)
+                                                    )
                                                         .clipShape(RoundedRectangle(cornerRadius: 10))
                                                 }
                                                 
@@ -381,7 +389,6 @@ struct MovieContentView: View {
                             .shadow(color: .black.opacity(0.8), radius: 5, x: 2, y: 2)
                             .opacity(viewModel.output.movieCard.poster == nil ? 0 : 1)
                             .disabled(viewModel.output.movieCard.poster == nil)
-
                         }
                         .padding(.bottom, 30)
                         .padding(.trailing, 15)
@@ -404,7 +411,10 @@ struct MovieContentView: View {
                 }
                 .navigationTitle(isAtTop ? "" : viewModel.output.movieInfo.title)
                 .navigationBarTitleDisplayMode(.inline)
-
+                .preferredColorScheme(.dark)
+                .onAppear {
+                    viewModel.input.reloadMovieCard.send(())
+                }
             }
         }
     }
@@ -429,20 +439,24 @@ struct MovieContentHeaderView: View {
     }
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .bottom) {
+            let _ = screenWidth
+            let height = screenHeight * 0.37
+
             AsyncCachableImageView(
                 urlString: output.movieInfo.backdropPath,
-                size: CGSize(width: screenWidth, height: screenHeight * 0.45)
+                size: CGSize(width: screenWidth, height: height)
             )
             
             Rectangle()
                 .fill(
                     LinearGradient(
-                        gradient: Gradient(colors: [.clear, .black.opacity(0.8)]),
-                        startPoint: .center,
+                        gradient: Gradient(colors: [.black.opacity(0.05), .black.opacity(0.6)]),
+                        startPoint: .top,
                         endPoint: .bottom
                     )
                 )
+                .frame(width: screenWidth, height: height)
             
             VStack {
                 Spacer()
@@ -481,5 +495,5 @@ struct MovieContentHeaderView: View {
 }
 
 #Preview {
-    MovieContentView(viewModel: MovieContentViewModel(movieID: 673))
+    MovieContentView(movieID: 673)
 }

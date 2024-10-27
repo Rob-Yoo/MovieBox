@@ -22,7 +22,7 @@ struct MovieBackdropDTO: Decodable {
 extension MovieGalleryDTO {
     func toDomain() -> MovieContent.MovieImageGallery {
         let list = self.backdrops.map {
-            API.tmdbImageRequestBaseUrl + $0.filePath
+            $0.filePath
         }
 
         return MovieContent.MovieImageGallery(backdropPathList: list)

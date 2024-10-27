@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC206AA72CBC4EA3002C9223 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC206AA62CBC4EA3002C9223 /* DiskCache.swift */; };
 		CC529C792CA945FB001E5FEF /* SwiftUIVisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = CC529C782CA945FB001E5FEF /* SwiftUIVisualEffects */; };
 		CC529C7F2CA9B267001E5FEF /* ActitivyIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */; };
 		CC529C822CA9BAEB001E5FEF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC529C812CA9BAEB001E5FEF /* SettingView.swift */; };
@@ -49,7 +50,6 @@
 		CC7319FD2C9F3C23009158EC /* DefaultMovieListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */; };
 		CC7319FF2C9F3CFD009158EC /* MovieListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */; };
 		CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC731A012CA037AF009158EC /* MovieListUseCase.swift */; };
-		CC83D4462CAEF92B0009C381 /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4452CAEF92B0009C381 /* DiskCache.swift */; };
 		CC83D4482CAF06070009C381 /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4472CAF06070009C381 /* MemoryCache.swift */; };
 		CC83D44A2CAF08580009C381 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D4492CAF08580009C381 /* ImageCacheManager.swift */; };
 		CC83D44C2CAFB8660009C381 /* AsyncCachableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC83D44B2CAFB8660009C381 /* AsyncCachableImageView.swift */; };
@@ -98,6 +98,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CC206AA62CBC4EA3002C9223 /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
 		CC529C7E2CA9B267001E5FEF /* ActitivyIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActitivyIndicatorView.swift; sourceTree = "<group>"; };
 		CC529C812CA9BAEB001E5FEF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		CC529C842CAA7125001E5FEF /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
@@ -134,7 +135,6 @@
 		CC7319FC2C9F3C23009158EC /* DefaultMovieListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieListRepository.swift; sourceTree = "<group>"; };
 		CC7319FE2C9F3CFD009158EC /* MovieListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListDataSource.swift; sourceTree = "<group>"; };
 		CC731A012CA037AF009158EC /* MovieListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListUseCase.swift; sourceTree = "<group>"; };
-		CC83D4452CAEF92B0009C381 /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
 		CC83D4472CAF06070009C381 /* MemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
 		CC83D4492CAF08580009C381 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		CC83D44B2CAFB8660009C381 /* AsyncCachableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncCachableImageView.swift; sourceTree = "<group>"; };
@@ -463,9 +463,9 @@
 		CC83D4442CAEF9160009C381 /* ImageCache */ = {
 			isa = PBXGroup;
 			children = (
-				CC83D4452CAEF92B0009C381 /* DiskCache.swift */,
 				CC83D4472CAF06070009C381 /* MemoryCache.swift */,
 				CC83D4492CAF08580009C381 /* ImageCacheManager.swift */,
+				CC206AA62CBC4EA3002C9223 /* DiskCache.swift */,
 			);
 			path = ImageCache;
 			sourceTree = "<group>";
@@ -737,6 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC206AA72CBC4EA3002C9223 /* DiskCache.swift in Sources */,
 				CC7319B52C9C4AE8009158EC /* BoxOfficeDTO.swift in Sources */,
 				CCF3157C2CA060D80082D794 /* MovieListViewModel.swift in Sources */,
 				CC7319F52C9ED27B009158EC /* MovieContentRepository.swift in Sources */,
@@ -761,7 +762,6 @@
 				CC92218D2CA67E5800C74F95 /* StarView.swift in Sources */,
 				CC9221922CA69BEA00C74F95 /* MakeMovieCardViewModel.swift in Sources */,
 				CC83D44A2CAF08580009C381 /* ImageCacheManager.swift in Sources */,
-				CC83D4462CAEF92B0009C381 /* DiskCache.swift in Sources */,
 				CC7319F12C9E9A7E009158EC /* MovieListRepository.swift in Sources */,
 				CC7319CC2C9D63E2009158EC /* MovieDetailDTO+Mapping.swift in Sources */,
 				CC7319E32C9E8576009158EC /* DailyBoxOfficeGalleryMapper.swift in Sources */,
@@ -941,6 +941,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
@@ -980,6 +981,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
