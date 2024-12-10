@@ -73,6 +73,7 @@
 		CCBA34802CA431C60058507C /* Country.json in Resources */ = {isa = PBXBuildFile; fileRef = CCBA347F2CA431C60058507C /* Country.json */; };
 		CCBA34822CA473F00058507C /* MovieVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA34812CA473F00058507C /* MovieVideo.swift */; };
 		CCD08E902CA935DF005BB189 /* MovieCardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD08E8F2CA935DF005BB189 /* MovieCardBackView.swift */; };
+		CCD358E22D07D6A60031F6CB /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD358E12D07D6A60031F6CB /* ImageDetailView.swift */; };
 		CCF315722CA045080082D794 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF315712CA045080082D794 /* CustomTabView.swift */; };
 		CCF315732CA05A760082D794 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = CC7319992C9C0611009158EC /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CCF3157C2CA060D80082D794 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */; };
@@ -157,6 +158,7 @@
 		CCBA347F2CA431C60058507C /* Country.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Country.json; sourceTree = "<group>"; };
 		CCBA34812CA473F00058507C /* MovieVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVideo.swift; sourceTree = "<group>"; };
 		CCD08E8F2CA935DF005BB189 /* MovieCardBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardBackView.swift; sourceTree = "<group>"; };
+		CCD358E12D07D6A60031F6CB /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		CCF315712CA045080082D794 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		CCF315752CA05B1C0082D794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CCF3157B2CA060D80082D794 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 		CCBA34732CA3D5DC0058507C /* ImageViews */ = {
 			isa = PBXGroup;
 			children = (
+				CCD358E12D07D6A60031F6CB /* ImageDetailView.swift */,
 				CCBA34742CA3D5ED0058507C /* ImagePlaceholderView.swift */,
 				CC83D44B2CAFB8660009C381 /* AsyncCachableImageView.swift */,
 			);
@@ -748,6 +751,7 @@
 				CC7319C92C9D60AD009158EC /* CountryMapper.swift in Sources */,
 				CC92219D2CA8132200C74F95 /* MovieBoxView.swift in Sources */,
 				CCBA34772CA3D8E90058507C /* MovieContentViewModel.swift in Sources */,
+				CCD358E22D07D6A60031F6CB /* ImageDetailView.swift in Sources */,
 				CCBA34822CA473F00058507C /* MovieVideo.swift in Sources */,
 				CC7319DC2C9DA2D7009158EC /* MoviePosterDTO+Mapping.swift in Sources */,
 				CC731A022CA037AF009158EC /* MovieListUseCase.swift in Sources */,
@@ -950,7 +954,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinyoo.sesac.MovieBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -990,7 +994,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinyoo.sesac.MovieBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

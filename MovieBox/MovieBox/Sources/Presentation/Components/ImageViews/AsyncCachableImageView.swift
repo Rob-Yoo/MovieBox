@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit.UIImage
 
 struct AsyncCachableImageView: View {
-    @StateObject private var viewModel: AsyncCachableImageViewModel
+    @StateObject var viewModel: AsyncCachableImageViewModel
     private let size: CGSize
     private var urlString: String
     

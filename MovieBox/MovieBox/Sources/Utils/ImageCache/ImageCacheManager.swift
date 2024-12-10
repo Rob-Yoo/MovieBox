@@ -33,7 +33,7 @@ final class ImageCacheManager {
         mCache.configureCachePolicy(with: 10 * 1024 * 1024)
         return mCache
     }()
-    private let diskCache = DiskCache(1000 * 1024)
+    private let diskCache = DiskCache(400 * 1024 * 1024)
     private init() {}
     
     func getImage(_ imagePath: String, _ cacheType: CacheType) async -> Data? {

@@ -25,7 +25,13 @@ struct MovieContentView: View {
     @State private var shouldExpand = false
     @State private var showExpandingButton = false
     @State private var isAtTop = true
+    @State private var selectedImagePath: ImageItem? = nil
     @Environment(\.dismiss) private var dismiss
+    
+    fileprivate struct ImageItem: Identifiable {
+        let id = UUID()
+        let url: String
+    }
     
     init(movieID: Int) {
         _viewModel = StateObject(wrappedValue: MovieContentViewModel(movieID: movieID))
@@ -46,7 +52,11 @@ struct MovieContentView: View {
                         
                         LazyVStack {
                             
-                            MovieContentHeaderView(viewModel: viewModel, screenSize: geometry.size)
+                            MovieContentHeaderView(
+                                viewModel: viewModel,
+                                screenSize: geometry.size,
+                                selectedImagePath: $selectedImagePath
+                            )
                             
                             Spacer()
                             
@@ -142,7 +152,9 @@ struct MovieContentView: View {
                                                     
                                                 }
                                                 .frame(maxWidth: width)
-                                                
+                                                .onTapGesture {
+                                                    selectedImagePath = MovieContentView.ImageItem(url:cast.profilePath)
+                                                }
                                             }
                                             
                                         }
@@ -181,7 +193,10 @@ struct MovieContentView: View {
                                                     urlString: movieImage,
                                                     size: CGSize(width: width, height: width * 0.7)
                                                 )
-                                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                                .onTapGesture {
+                                                    selectedImagePath = MovieContentView.ImageItem(url: movieImage)
+                                                }
                                             }
                                             
                                         }
@@ -398,6 +413,15 @@ struct MovieContentView: View {
                         ActitivyIndicatorView()
                     }
                 }
+                .fullScreenCover(item: $selectedImagePath) { item in
+                    ImageDetailView(
+                        imagePath: item.url,
+                        width: screenWidth,
+                        onClose: {
+                            selectedImagePath = nil
+                        }
+                    )
+                }
                 .navigationBarBackButtonHidden()
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
@@ -423,19 +447,22 @@ struct MovieContentView: View {
 struct MovieContentHeaderView: View {
     
     @ObservedObject private var viewModel: MovieContentViewModel
+    @Binding private var selectedImagePath: MovieContentView.ImageItem?
     private var output: MovieContentViewModel.Output {
         return viewModel.output
     }
     private var screenWidth: CGFloat
     private var screenHeight: CGFloat
     
-    init(
+    fileprivate init(
         viewModel: MovieContentViewModel,
-        screenSize: CGSize
+        screenSize: CGSize,
+        selectedImagePath: Binding<MovieContentView.ImageItem?>
     ) {
         self.viewModel = viewModel
         self.screenWidth = screenSize.width
         self.screenHeight = screenSize.height
+        self._selectedImagePath = selectedImagePath
     }
     
     var body: some View {
@@ -446,7 +473,9 @@ struct MovieContentHeaderView: View {
             AsyncCachableImageView(
                 urlString: output.movieInfo.backdropPath,
                 size: CGSize(width: screenWidth, height: height)
-            )
+            ).onTapGesture {
+                self.selectedImagePath = MovieContentView.ImageItem(url: output.movieInfo.backdropPath)
+            }
             
             Rectangle()
                 .fill(
@@ -471,6 +500,9 @@ struct MovieContentHeaderView: View {
                     )
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .padding(.leading, 15)
+                        .onTapGesture {
+                            selectedImagePath = MovieContentView.ImageItem(url:output.movieInfo.posterPath)
+                        }
 
                     VStack(alignment: .leading, spacing: 5) {
                         

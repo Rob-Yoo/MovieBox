@@ -60,27 +60,23 @@ struct MovieListView: View {
                                                     GridItem(.flexible()),
                                                     GridItem(.flexible()),
                                                     GridItem(.flexible())], spacing: 10) {
-                                                        ForEach(viewModel.output.searchResults.indices, id: \.self) { index in
-                                                            let movie = viewModel.output.searchResults[index]
+                                                        ForEach(viewModel.output.searchResults, id: \.id) { movie in
                                                             let width = (geometry.size.width - 60) / 3
                                                             
                                                             NavigationLink {
                                                                 MovieContentView(movieID: movie.id)
                                                             } label: {
-                                                                AsyncCachableImageView(
-                                                                    urlString: movie.posterPath,
-                                                                    size: CGSize(width: width, height: width * 1.3),
-                                                                    cacheType: .memoryCache
-                                                                )
-                                                                    .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                                                                    .onAppear {
-                                                                        
-                                                                        if (index == viewModel.output.searchResults.count - 5) {
-                                                                            viewModel.input.paginationTrigger.send(())
-                                                                        }
+                                                                AsyncCachableImageView(urlString: movie.posterPath,
+                                                                                       size: CGSize(width: width, height: width * 1.3),
+                                                                                       cacheType: .memoryCache)
+                                                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                                                .onAppear {
+                                                                    if movie == viewModel.output.searchResults.last {
+                                                                        viewModel.input.paginationTrigger.send(())
                                                                     }
+                                                                }
+                                                                
                                                             }
-                                                            
                                                         }
                                                     }
                                                     .frame(maxWidth: .infinity)
