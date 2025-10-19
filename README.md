@@ -44,6 +44,62 @@
 
 ## 🧰 프로젝트 주요 기술 사항
 
+### 이미지 캐시 전략 및 구현
+
+<br>
+<b> 이미지 캐시 전략 </b>
+<br>
+<br>
+<img src="https://github.com/user-attachments/assets/6dab8c2b-ac22-4e0f-bc4f-c9637c889961" width="800">
+
+<br>
+<br>
+
+- <b>영화 검색 결과</b>에 대한 이미지는 사용자가 빠르게 소비하는 <b>단기적인 데이터</b>이므로 NSCache를 이용한 <b>메모리 캐시</b>만 적용
+ 
+- <b>주간 인기 영화</b>에 대한 이미지는 주 단위로 바뀌는 <b>장기적인 데이터</b>이므로 FileManager를 이용한 <b>Etag 기반 디스크 캐시</b>만 적용
+   - 20개의 데이터 중 평균적으로 3-4개의 데이터만 업데이트 되기에 주 단위로 모든 데이터를 제거하는 것이 아니라 변동된 데이터만 삽입/삭제
+   
+- <b>영화 상세 정보</b>에 대한 이미지는 사용자가 <b>관람할 영화를 고르기 위해 해당 화면에 접근 후 앱을 종료한 뒤 영화 관람 후 다시 앱을 실행하여 영화 카드를 제작하는 시나리오</b>를 고려하여 <b>메모리 캐시와 Etag 기반 디스크 캐시</b>를 혼합하여 적용
+   - 디스크 캐시 히트율을 높히기 위해 <b>LRU와 LFU를 혼합한 디스크 캐시</b> 적용
+
+<br>
+<br>
+
+<b> LRU와 LFU 알고리즘을 혼합한 디스크 캐시 구현 </b>
+
+<br>
+<br>
+
+<img src="https://github.com/user-attachments/assets/fa39a664-efd0-4b51-a594-48c420ddbad8" width="800">
+
+<br>
+<br>
+
+- LRU 알고리즘을 구현 시 접근 시간에 대한 max 연산의 O(N) 시간복잡도를 <b>이중 연결 리스트를 사용하여 O(1)로 개선</b>
+- 메인 스레드에서의 I/O Bound 문제를 해결하고 I/O 작업 중 발생할 수 있는 Data Race를 방지하기 위해, <b>Custom Serial Queue를 활용한 Non-Blocking I/O</b> 적용
+
+<br>
+<br>
+
+### 이미지 리사이징을 활용한 메모리 최적화
+
+<br>
+
+<div align="center">
+
+<img width="300" height="200" alt="스크린샷 2024-10-05 오후 4 11 15" src="https://github.com/user-attachments/assets/c5c31880-c650-487a-98fd-631aabebb4c3">
+<img width="300" height="200" alt="스크린샷 2024-10-05 오후 4 12 19" src="https://github.com/user-attachments/assets/b591efa4-4d7a-484a-a0d4-408ce41c5a49">
+</div>
+
+<br>
+
+- 원본 이미지를 단순히 resizable().frame(width:height:)으로 크기를 조절할 시 원본 이미지를 그대로 렌더링하므로 불필요하게 메모리가 많이 사용됨
+- UIGraphicsImageRenderer를 사용해서 이미지 뷰가 필요로 하는 크기에 맞추어 리사이징하여 필요한 만큼만 픽셀 정보를 메모리에 로드시켜 메모리를 절약
+
+<br>
+<br>
+
 ### DI Container를 활용한 Clean Architecture + MVVM
 
 > 영화 상세 정보 조회 기능에서의 Clean Architecture 활용 예시
@@ -118,55 +174,3 @@
 
 <br>
 
-### 이미지 캐시 전략 및 구현
-
-<br>
-<b> 이미지 캐시 전략 </b>
-<br>
-<br>
-<img src="https://github.com/user-attachments/assets/6dab8c2b-ac22-4e0f-bc4f-c9637c889961" width="800">
-
-<br>
-<br>
-
-- <b>영화 검색 결과</b>에 대한 이미지는 사용자가 빠르게 소비하는 <b>단기적인 데이터</b>이므로 NSCache를 이용한 <b>메모리 캐시</b>만 적용
- 
-- <b>주간 인기 영화</b>에 대한 이미지는 주 단위로 바뀌는 <b>장기적인 데이터</b>이므로 FileManager를 이용한 <b>Etag 기반 디스크 캐시</b>만 적용
-   - 20개의 데이터 중 평균적으로 3-4개의 데이터만 업데이트 되기에 주 단위로 모든 데이터를 제거하는 것이 아니라 변동된 데이터만 삽입/삭제
-   
-- <b>영화 상세 정보</b>에 대한 이미지는 사용자가 <b>관람할 영화를 고르기 위해 해당 화면에 접근 후 앱을 종료한 뒤 영화 관람 후 다시 앱을 실행하여 영화 카드를 제작하는 시나리오</b>를 고려하여 <b>메모리 캐시와 Etag 기반 디스크 캐시</b>를 혼합하여 적용
-   - 디스크 캐시 히트율을 높히기 위해 <b>LRU와 LFU를 혼합한 디스크 캐시</b> 적용
-
-<br>
-<br>
-
-<b> LRU와 LFU 알고리즘을 혼합한 디스크 캐시 구현 </b>
-
-<br>
-<br>
-
-<img src="https://github.com/user-attachments/assets/fa39a664-efd0-4b51-a594-48c420ddbad8" width="800">
-
-<br>
-<br>
-
-- LRU 알고리즘을 구현 시 접근 시간에 대한 max 연산의 O(N) 시간복잡도를 <b>이중 연결 리스트를 사용하여 O(1)로 개선</b>
-- 메인 스레드에서의 I/O Bound 문제를 해결하고 I/O 작업 중 발생할 수 있는 Data Race를 방지하기 위해, <b>Custom Serial Queue를 활용한 Non-Blocking I/O</b> 적용
-
-<br>
-<br>
-
-### 이미지 리사이징을 활용한 메모리 최적화
-
-<br>
-
-<div align="center">
-
-<img width="300" height="200" alt="스크린샷 2024-10-05 오후 4 11 15" src="https://github.com/user-attachments/assets/c5c31880-c650-487a-98fd-631aabebb4c3">
-<img width="300" height="200" alt="스크린샷 2024-10-05 오후 4 12 19" src="https://github.com/user-attachments/assets/b591efa4-4d7a-484a-a0d4-408ce41c5a49">
-</div>
-
-<br>
-
-- 원본 이미지를 단순히 resizable().frame(width:height:)으로 크기를 조절할 시 원본 이미지를 그대로 렌더링하므로 불필요하게 메모리가 많이 사용됨
-- UIGraphicsImageRenderer를 사용해서 이미지 뷰가 필요로 하는 크기에 맞추어 리사이징하여 필요한 만큼만 픽셀 정보를 메모리에 로드시켜 메모리를 절약
